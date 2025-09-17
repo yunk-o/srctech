@@ -5,15 +5,15 @@
   <title>Title</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <div id="wrap">
   <header class="header ">
     <div class="header_container">
       <div class="header_logo">
-        <a href="./index.html">
-          <img src="images/src_logo_transparent.png" alt="">
+        <a href="index.html">
+          <img src="../images/src_logo_transparent.png" alt="">
         </a>
       </div>
       <ul class="header_nav">
@@ -30,7 +30,7 @@
           </div>
         </li>
         <li class="nav_item">
-          <a class="nav_link" href="./work.html">Parts</a>
+          <a class="nav_link" href="work.html">Parts</a>
           <div class="nav_dropdown ">
             <div class="dropdown_group">
               <a class="group_main" href="">Heater</a>
@@ -79,7 +79,7 @@
           </div>
         </li>
         <li class="nav_item">
-          <a class="nav_link" href="./contact.html">Repair</a>
+          <a class="nav_link" href="contact.html">Repair</a>
           <div class="nav_dropdown">
             <div class="dropdown_group">
               <a href="">Heater</a>
@@ -89,7 +89,7 @@
           </div>
         </li>
         <li class="nav_item">
-          <a class="nav_link" href="./contact.html">Contact Us</a>
+          <a class="nav_link" href="contact.html">Contact Us</a>
         </li>
         <li class="nav_item nav_search">
           <button class="btn_search" onclick="productSearch();">
@@ -103,7 +103,7 @@
   <div class="content">
     <div class="sub_hero">
       <h1>
-        Refurbished Parts and Works
+        New Parts
       </h1>
     </div>
     <section class="product __sub">
@@ -120,34 +120,34 @@
         <div id="tab-1" class="tab-content current">
           <ul class="items">
             <li>
-              <a href="./parts_view.html">
-                <img src="./images/item1.png" alt="">
+              <a href="parts_view.html">
+                <img src="../images/item1.png" alt="">
                 <p>CER HTR ASSY, 200mm PRODUCER,
                   0010-03840</p>
               </a>
             </li>
             <li>
-              <img src="./images/item1.png" alt="">
+              <img src="../images/item1.png" alt="">
               <p>CER HTR ASSY, 200mm PRODUCER,
                 0010-03840</p>
             </li>
             <li>
-              <img src="./images/item1.png" alt="">
+              <img src="../images/item1.png" alt="">
               <p>CER HTR ASSY, 200mm PRODUCER,
                 0010-03840</p>
             </li>
             <li>
-              <img src="./images/item1.png" alt="">
+              <img src="../images/item1.png" alt="">
               <p>CER HTR ASSY, 200mm PRODUCER,
                 0010-03840</p>
             </li>
             <li>
-              <img src="./images/item1.png" alt="">
+              <img src="../images/item1.png" alt="">
               <p>CER HTR ASSY, 200mm PRODUCER,
                 0010-03840</p>
             </li>
             <li>
-              <img src="./images/item1.png" alt="">
+              <img src="../images/item1.png" alt="">
               <p>CER HTR ASSY, 200mm PRODUCER,
                 0010-03840</p>
             </li>
@@ -182,15 +182,15 @@
 
   <script src="https://code.jquery.com/jquery-3.6.3.slim.js"></script>
   <script>
-    $(document).ready(function(){
-      $('ul.tabs li').click(function(){
-        var tab_id = $(this).attr('data-tab');
-        $('ul.tabs li').removeClass('current');
-        $('.tab-content').removeClass('current');
-        $(this).addClass('current');
-        $("#"+tab_id).addClass('current');
+      $(document).ready(function(){
+          $('ul.tabs li').click(function(){
+              var tab_id = $(this).attr('data-tab');
+              $('ul.tabs li').removeClass('current');
+              $('.tab-content').removeClass('current');
+              $(this).addClass('current');
+              $("#"+tab_id).addClass('current');
+          })
       })
-    })
   </script>
 </div>
 </body>

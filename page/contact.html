@@ -3,23 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <div id="wrap">
   <header class="header sub_page_header">
     <div class="header_container">
       <div class="header_logo">
-        <a href="./index.html">
-          <img src="images/src_logo_transparent.png" alt="">
+        <a href="index.html">
+          <img src="../images/src_logo_transparent.png" alt="">
         </a>
       </div>
       <ul class="header_nav">
         <li class="nav_item ">
-          <a class="nav_link " href="./introduce.html">Company</a>
+          <a class="nav_link " href="introduce.html">Company</a>
           <div class="nav_dropdown">
             <div class="dropdown_group">
               <a href="">All</a>
@@ -31,7 +30,7 @@
           </div>
         </li>
         <li class="nav_item">
-          <a class="nav_link" href="./work.html">Parts</a>
+          <a class="nav_link" href="work.html">Parts</a>
           <div class="nav_dropdown ">
             <div class="dropdown_group">
               <a class="group_main" href="">Heater</a>
@@ -102,27 +101,56 @@
   </header>
   <div class="sub_hero">
     <h1 data-aos="flip-left">
-      COMPANY
+      Contact Us
     </h1>
   </div>
 
   <div class="content">
     <div class="container">
-      <h2 class="sub_title">Certification</h2>
-      <section class="certification">
-        <div class="certification_items">
-          <a href="/assets/information/CompanyInformation.pdf" target="_blank">
-            <img src="images/certification1.png" alt="">
-          </a>
-          <a href="/assets/information/SUPPLIABLEPARTSLIST.pdf" target="_blank">
-            <img src="images/certification2.jpg" alt="">
-          </a>
-          <a href="/assets/information/TRACKHEATERLIST.pdf" target="_blank">
-            <img src="images/certification3.jpg" alt="">
-          </a>
+      <h2 class="title">Contact</h2>
+      <p class="indicator">GET IN TOUCH WITH US</p>
+      <div class="consult">
+        <div>
+          <ul class="input_group">
+            <li>
+              <label for="">Interested In</label>
+              <input type="text" placeholder="메세지를 입력해주세요">
+            </li>
+            <li>
+              <label for="">Name<span>*</span></label>
+              <input type="text" placeholder="메세지를 입력해주세요">
+            </li>
+            <li>
+              <label for="">Email Address<span>*</span></label>
+              <input type="text" placeholder="메세지를 입력해주세요">
+            </li>
+            <li>
+              <label for="">Subject<span>*</span></label>
+              <input type="text" placeholder="메세지를 입력해주세요">
+            </li>
+            <li>
+              <label for="">Phone Number<span>*</span></label>
+              <input type="text" placeholder="메세지를 입력해주세요">
+            </li>
+          </ul>
         </div>
-      </section>
 
+        <div>
+          <div class="input_message">
+            <label for=""></label>
+            <textarea name="" id="" placeholder="메세지를 입력해주세요"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="btns">
+        <button>Submit</button>
+      </div>
+
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3178.270418009947!2d127.064816!3d37.193806!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b4420c2028c33%3A0x55b41a79ae2d3d07!2z64yA7ZWc66-86rWtIOqyveq4sOuPhCDsmKTsgrDsi5wg7Jm47IK866-466GcMTUy67KI6ri4IDU3LTEw!5e0!3m2!1sko!2sus!4v1675693606953!5m2!1sko!2sus"
+          style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
   </div>
 
@@ -130,7 +158,7 @@
     <div class="footer_container">
       <!-- 로고 -->
       <div class="footer_logo">
-        <img src="images/src_logo_transparent.png" alt="">
+        <img src="../images/src_logo_transparent.png" alt="">
       </div>
 
       <!-- 회사 정보 -->
@@ -145,10 +173,10 @@
       <small>Copyright © SRCTECH CO.,Ltd ALL Rights Reserved</small>
     </div>
   </footer>
-
 </div>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="./js/script.js"></script>
+<script src="../js/script.js"></script>
 <script>
     AOS.init();
 </script>
