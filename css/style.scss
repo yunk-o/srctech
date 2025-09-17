@@ -633,15 +633,17 @@ body:not(.fp-responsive) .fp-overflow {
 /*sub page*/
 .sub_hero {
   width: 100%;
-  height: 300px;
+  height: 380px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: $size1;
+  font-size: 120px;
+  margin-top: 80px;
   background: {
     image: url("../images/company.jpg");
     repeat: no-repeat;
     position: center;
+    size: cover
   };
 
   h1 {
@@ -650,17 +652,96 @@ body:not(.fp-responsive) .fp-overflow {
   }
 }
 
+.introduce {
+  width: 100%;
 
-//contact
-.sub_contact {
-  padding-top: 5rem;
-
-  .title {
-    @extend %title;
+  .introduce_img {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    grid-template-rows: 200px 200px;
+    gap: 1rem;
+    overflow: hidden;
   }
 
-  .indicator {
-    @extend %indicator;
+  .introduce_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 영역 꽉 차게 */
+    display: block;
+    border-radius: 8px;
+  }
+
+  .introduce_img .img1 {
+    grid-row: 1 / span 2; /* 세로로 2칸 차지 */
+    grid-column: 1;       /* 왼쪽 열 */
+    background: {
+      image: url("../images/sky.jpg");
+      size: cover;
+    }
+    border-radius: 8px;
+  }
+
+  .introduce_img .img2 {
+    grid-row: 1;          /* 첫 행 */
+    grid-column: 2;       /* 오른쪽 열 */
+  }
+
+  .introduce_img .img3 {
+    grid-row: 2;          /* 두 번째 행 */
+    grid-column: 2;       /* 오른쪽 열 */
+  }
+
+  .introduce_txt {
+    margin: 3rem 0;
+  }
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 2;
+  }
+}
+
+.information {
+  .information_items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    a {
+      display: flex;
+      background-color: #f8f8fa;
+      padding: 2rem;
+      gap: 1rem;
+      border-radius: 8px;
+      strong {
+        color: $main-color;
+        font-weight: 600;
+      }
+      span {
+      }
+    }
+  }
+}
+
+.certification {
+  .certification_items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+
+    a {
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 5px 5px;
+      img {
+        height: 100%;
+      }
+    }
   }
 }
 
@@ -785,12 +866,14 @@ body:not(.fp-responsive) .fp-overflow {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 400px;
+  height: 500px;
   text-align: center;
-  margin-top: 3rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0 25px 5px rgba(black, 0.1);
 
   iframe {
-    width: 100vw;
+    width: 100%;
     height: 100%;
   }
 }

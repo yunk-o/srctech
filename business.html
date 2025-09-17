@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Title</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 <div id="wrap">
-  <header class="header ">
+  <header class="header sub_page_header">
     <div class="header_container">
       <div class="header_logo">
         <a href="./index.html">
@@ -22,7 +22,7 @@
           <a class="nav_link " href="./introduce.html">Company</a>
           <div class="nav_dropdown">
             <div class="dropdown_group">
-              <a href="">Introduce</a>
+              <a href="">All</a>
               <a href="">Business</a>
               <a href="">Certification</a>
               <a href="">Information</a>
@@ -100,68 +100,47 @@
       </ul>
     </div>
   </header>
+  <div class="sub_hero">
+    <h1 data-aos="flip-left">
+      COMPANY
+    </h1>
+  </div>
 
-  <section class="main_hero">
+  <div class="content">
+    <div class="container">
+      <h2 class="sub_title">Business</h2>
+      <section class="">
+        <img src="./images/business_area.png" alt="">
+      </section>
 
-    <div class="img_area">
     </div>
+  </div>
 
-    <div class="overlay">
-      <div class="text_area">
-        <h1 class="">
-          SRC Tech
-        </h1>
-        <p class="">The Best Choice For Your Inquiry</p>
+  <footer class="footer">
+    <div class="footer_container">
+      <!-- 로고 -->
+      <div class="footer_logo">
+        <img src="images/src_logo_transparent.png" alt="">
+      </div>
 
-        <div class="info_area">
-          <div class="info_box">
-            <i class="fa-solid fa-envelope"></i>
-            <div class="info_txt">
-              <strong>E-MAIL</strong>
-              <p>sales@srctech.co.kr</p>
-            </div>
-          </div>
-
-          <div class="info_box">
-            <i class="fa-solid fa-phone"></i>
-            <div class="info_txt">
-              <strong>CONTACT</strong>
-              <p>T. 82-31-378-9776 | F. 82-31-378-9778</p>
-            </div>
-          </div>
-
-          <div class="info_box">
-            <i class="fa-solid fa-building"></i>
-            <div class="info_txt">
-              <strong>ADDRESS</strong>
-              <p>40-23, Gajang-Ro 534 Beongil,</p>
-              <p>Osan-Si, Gyeonggi-Do, South Korea, 18104</p>
-            </div>
-          </div>
-        </div>
+      <!-- 회사 정보 -->
+      <div class="footer_info">
+        <p>E-Mail. : sales@srctech.co.kr | </p>
+        <p>TEL. : +82-31-378-9776</p>
+        <p>40-23, Gajang-Ro 534 Beongil, Osan-Si, Gyeonggi-Do, South Korea, 18104</p>
+        <p>Business Number : 497-87-02542</p>
       </div>
     </div>
+    <div class="copyright">
+      <small>Copyright © SRCTECH CO.,Ltd ALL Rights Reserved</small>
+    </div>
+  </footer>
 
-  </section>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.2.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="./js/script.js"></script>
-<!-- Initialize Swiper -->
 <script>
-    var swiper = new Swiper(".mySwiper", {
-        cssMode: true,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-            el: ".swiper-pagination",
-        },
-        mousewheel: true,
-        keyboard: true,
-    });
+    AOS.init();
 </script>
 </body>
 </html>

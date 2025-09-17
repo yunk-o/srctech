@@ -1,24 +1,86 @@
-/*===========================================================================
-	CSS 초기화
-============================================================================*/
-* {font-family: 'Montserrat', "Noto Sans KR", sans-serif; box-sizing:border-box; margin:0; padding:0; }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  font-family: "Roboto", "Noto Sans KR", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, em, img, strong, b, i, dl, dt, dd, ol, ul, li,
 form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, footer, header,
-menu, nav, section, video, a {border:0; outline:0; font-size:100%; color:#222; line-height:1.2;}
-body {line-height:1;}
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display:block;}
-ul, ol, li {list-style:none;}
-strong {display: inline-block;}
-a {margin:0; padding:0; font-size:100%; }
-table {border-collapse:collapse; border-spacing:0;}
-input, select {vertical-align:middle;}
-p {line-height:1.5; word-break:keep-all;}
-img {width: 100%}
-input {outline:none;}
-button {cursor:pointer;}
-a {text-decoration: none;}
-textarea {resize: none;}
-.container {max-width: 1480px; height: 100%; margin: 0 auto; padding: 0 1rem;}
+menu, nav, section, video, a {
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  color: #111;
+  line-height: 1.2;
+}
+
+body {
+  line-height: 1;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+strong {
+  display: inline-block;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+p {
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+textarea {
+  resize: none;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 5rem;
+}
 
 $main-color: #2a477b;
 $gray: #777777;
@@ -37,6 +99,16 @@ header {
   height: 5rem;
   transition: transform 1s;
   opacity: 1;
+
+  &.sub_page_header {
+    background: white;
+
+    .header_nav {
+      .nav_link, i {
+        color: black !important;
+      }
+    }
+  }
 
   &.hide {
     opacity: 0;
@@ -118,7 +190,7 @@ header {
           display: flex;
           justify-content: space-between;
           gap: 2rem;
-          padding: 1rem 0 ;
+          padding: 1rem 0;
 
           a {
             color: gray;
@@ -131,6 +203,7 @@ header {
             font-weight: bold;
             color: black;
           }
+
           .sub_group {
             display: flex;
             gap: 1rem;
@@ -167,8 +240,8 @@ header {
       color: white;
 
       &:hover {
-         opacity: 0.9;
-       }
+        opacity: 0.9;
+      }
     }
 
     .nav_dropdown {
@@ -183,6 +256,7 @@ header {
         height: 56px;
         background: none;
         border: none;
+
         i {
           font-size: 1.25rem;
           color: white;
@@ -190,6 +264,7 @@ header {
       }
     }
   }
+
   .btn_contact {
     background-color: $main-color;
     padding: 0.5rem 1rem;
@@ -200,7 +275,14 @@ header {
 }
 
 .content {
-  margin-top: 80px;
+  margin: 80px 0;
+  .container {
+    padding: 0 80px;
+  }
+  .sub_title {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
 }
 
 .footer {
@@ -222,7 +304,9 @@ header {
       image: url("../images/bg_footer.png");
       size: contain;
     };
+    filter: invert(1);
   }
+
   color: #f5f5f5;
 
   .footer_container {
@@ -240,7 +324,6 @@ header {
     img {
       max-width: 160px;
       display: block;
-      filter: invert(1);
     }
   }
 

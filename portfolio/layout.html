@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PARTS LIST TEST</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      margin: 2rem;
+      color: #333;
+    }
+    h2 {
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    /* 공통 레이아웃 */
+    .parts_list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .parts_card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fff;
+      padding: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .parts_card p {
+      font-size: 0.9rem;
+      margin: 0.5rem 0 0;
+    }
+
+    /* 1. Aspect-ratio (정사각형) */
+    .img_box.aspect {
+      aspect-ratio: 1 / 1;
+      background: #f8f8f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .img_box.aspect img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* 2. 고정 높이 박스 */
+    .img_box.fixed {
+      height: 200px;
+      background: #f8f8f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .img_box.fixed img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* 3. 썸네일 + 모달 */
+    .img_box.thumb {
+      aspect-ratio: 1 / 1;
+      background: #f8f8f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .img_box.thumb img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* 모달 스타일 */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+    }
+    .modal.show {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+
+<h1>PARTS LIST TEST</h1>
+
+<!-- 1. Aspect-ratio 정사각형 -->
+<h2>① Aspect-ratio (정사각형)</h2>
+<div class="parts_list">
+  <div class="parts_card">
+    <div class="img_box aspect">
+      <img src="https://via.placeholder.com/300x500?text=세로" alt="">
+    </div>
+    <p>세로 이미지</p>
+  </div>
+  <div class="parts_card">
+    <div class="img_box aspect">
+      <img src="https://via.placeholder.com/500x300?text=가로" alt="">
+    </div>
+    <p>가로 이미지</p>
+  </div>
+</div>
+
+<!-- 2. 고정 높이 박스 -->
+<h2>② 고정 높이 박스 (200px)</h2>
+<div class="parts_list">
+  <div class="parts_card">
+    <div class="img_box fixed">
+      <img src="https://via.placeholder.com/300x500?text=세로" alt="">
+    </div>
+    <p>세로 이미지</p>
+  </div>
+  <div class="parts_card">
+    <div class="img_box fixed">
+      <img src="https://via.placeholder.com/500x300?text=가로" alt="">
+    </div>
+    <p>가로 이미지</p>
+  </div>
+</div>
+
+<!-- 3. 썸네일 + 모달 -->
+<h2>③ 썸네일 + 모달 (클릭 시 확대)</h2>
+<div class="parts_list">
+  <div class="parts_card">
+    <div class="img_box thumb" onclick="openModal('https://via.placeholder.com/300x500?text=세로')">
+      <img src="https://via.placeholder.com/300x500?text=세로" alt="">
+    </div>
+    <p>세로 이미지</p>
+  </div>
+  <div class="parts_card">
+    <div class="img_box thumb" onclick="openModal('https://via.placeholder.com/500x300?text=가로')">
+      <img src="https://via.placeholder.com/500x300?text=가로" alt="">
+    </div>
+    <p>가로 이미지</p>
+  </div>
+</div>
+
+<!-- 모달 -->
+<div id="modal" class="modal" onclick="closeModal()">
+  <img id="modalImg" src="" alt="">
+</div>
+
+<script>
+    function openModal(src) {
+        document.getElementById("modalImg").src = src;
+        document.getElementById("modal").classList.add("show");
+    }
+    function closeModal() {
+        document.getElementById("modal").classList.remove("show");
+    }
+</script>
+
+</body>
+</html>

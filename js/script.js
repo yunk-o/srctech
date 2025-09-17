@@ -1,19 +1,4 @@
-// $(document).ready(function () {
-//     // nav item hover 시 dropdown 열기/닫기
-//     $('.header_nav > .nav_item').hover(function () {
-//         $(this).children('.nav_dropdown').toggleClass('on');
-//     });
-//
-//     // 모바일 메뉴 열기
-//     $('.header_menu').click(function () {
-//         $('.header_nav').addClass('on');
-//     });
-//
-//     // 모바일 메뉴 닫기
-//     $('.header_nav .btn_close').click(function () {
-//         $('.header_nav').removeClass('on');
-//     });
-// });
+
 
 $(document).ready(function () {
     $('.header_nav > .nav_item').hover(
@@ -43,3 +28,4 @@ $(window).on("scroll", function () {
 
     lastScrollTop = st;
 });
+
