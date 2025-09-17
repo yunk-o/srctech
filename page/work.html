@@ -1,104 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Title</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <div id="wrap">
-  <header class="header ">
-    <div class="header_container">
-      <div class="header_logo">
-        <a href="index.html">
-          <img src="../images/src_logo_transparent.png" alt="">
-        </a>
-      </div>
-      <ul class="header_nav">
-        <li class="nav_item ">
-          <a class="nav_link " href="introduce.html">Company</a>
-          <div class="nav_dropdown">
-            <div class="dropdown_group">
-              <a href="">All</a>
-              <a href="">Business</a>
-              <a href="">Certification</a>
-              <a href="">Information</a>
-              <a href="">Global Customer</a>
-            </div>
-          </div>
-        </li>
-        <li class="nav_item">
-          <a class="nav_link" href="./work.html">Parts</a>
-          <div class="nav_dropdown ">
-            <div class="dropdown_group">
-              <a class="group_main" href="">Heater</a>
-              <div class="sub_group">
-                <a href="">Ceramic HTR</a>
-                <a href="">TC</a>
-                <a href="">Track</a>
-              </div>
-            </div>
+  <div id="header"></div>
 
-            <div class="dropdown_group">
-              <a class="group_main" href="">Valve</a>
-            </div>
-
-            <div class="dropdown_group">
-              <a class="group_main" href="">Robot</a>
-              <div class="sub_group">
-                <a href="">Robot Driver</a>
-                <a href="">Blade & Pivot</a>
-                <a href="">Arm & Hub</a>
-              </div>
-            </div>
-
-            <div class="dropdown_group">
-              <a class="group_main" href="">Assembled Item</a>
-              <div class="sub_group">
-                <a href="">Power Supply</a>
-                <a href="">Controller</a>
-                <a href="">Magnet</a>
-              </div>
-            </div>
-
-            <div class="dropdown_group">
-              <a class="group_main" href="">Consumable</a>
-              <div class="sub_group">
-                <a href="">Ceramic</a>
-                <a href="">Quartz</a>
-                <a href="">Bellows</a>
-                <a href="">Process gods</a>
-              </div>
-            </div>
-
-            <div class="dropdown_group">
-              <a class="group_main" href="">PCB</a>
-            </div>
-          </div>
-        </li>
-        <li class="nav_item">
-          <a class="nav_link" href="contact.html">Repair</a>
-          <div class="nav_dropdown">
-            <div class="dropdown_group">
-              <a href="">Heater</a>
-              <a href="">Heater (Photo)</a>
-              <a href="">Valve</a>
-            </div>
-          </div>
-        </li>
-        <li class="nav_item">
-          <a class="nav_link" href="contact.html">Contact Us</a>
-        </li>
-        <li class="nav_item nav_search">
-          <button class="btn_search" onclick="productSearch();">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </li>
-      </ul>
-    </div>
-  </header>
 
   <div class="content">
     <div class="sub_hero">
@@ -168,30 +82,14 @@
     </section>
   </div>
 
-  <footer>
-    <div class="container">
-      <div class="f_logo"></div>
-      <span>mail : sangryong.ha@srctech.co.kr</span>
-      <span>T. +82-31-378-9776</span>
-      <span>F. +82-31-378-9778</span>
-      <span>57-10, Oesammi-ro 152beon-gil, Osan-si, Gyeonggi-do, 18111,  Korea</span>
-      <span>www.srctech.co.kr</span>
-      <span>COPYRIGHT SRC © 2020. ALL RIGHTS RESERVED.</span>
-    </div>
-  </footer>
+  <div id="footer"></div>
 
-  <script src="https://code.jquery.com/jquery-3.6.3.slim.js"></script>
-  <script>
-    $(document).ready(function(){
-      $('ul.tabs li').click(function(){
-        var tab_id = $(this).attr('data-tab');
-        $('ul.tabs li').removeClass('current');
-        $('.tab-content').removeClass('current');
-        $(this).addClass('current');
-        $("#"+tab_id).addClass('current');
-      })
-    })
-  </script>
+</div>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="../js/script.js"></script>
+<script>
+    AOS.init();
+</script>
 </div>
 </body>
 </html>

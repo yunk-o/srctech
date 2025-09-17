@@ -58,3 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch(error => console.error("푸터 불러오기 실패:", error));
     }
 });
+
+$(document).ready(function(){
+    $('ul.tabs li').click(function(){
+        var tab_id = $(this).attr('data-tab');
+        $('ul.tabs li').removeClass('current');
+        $('.tab-content').removeClass('current');
+        $(this).addClass('current');
+        $("#"+tab_id).addClass('current');
+    })
+})
