@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="
+https://cdn.jsdelivr.net/npm/fullpage.js@4.0.37/dist/fullpage.min.css
+" rel="stylesheet">
+</head>
+<body>
+<div id="wrap">
+  <header class="header ">
+    <div class="header_container">
+      <div class="header_logo">
+        <a href="./index.html">
+          <img src="images/src_logo_transparent.png" alt="">
+        </a>
+      </div>
+      <ul class="header_nav">
+        <li class="nav_item ">
+          <a class="nav_link " href="./company.html">Company</a>
+          <div class="nav_dropdown">
+            <div class="dropdown_group">
+              <a href="">All</a>
+              <a href="">Business</a>
+              <a href="">Certification</a>
+              <a href="">Information</a>
+              <a href="">Global Customer</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav_item">
+          <a class="nav_link" href="./work.html">Parts</a>
+          <div class="nav_dropdown ">
+            <div class="dropdown_group">
+              <a class="group_main" href="">Heater</a>
+              <div class="sub_group">
+                <a href="">Ceramic HTR</a>
+                <a href="">TC</a>
+                <a href="">Track</a>
+              </div>
+            </div>
+
+            <div class="dropdown_group">
+              <a class="group_main" href="">Valve</a>
+            </div>
+
+            <div class="dropdown_group">
+              <a class="group_main" href="">Robot</a>
+              <div class="sub_group">
+                <a href="">Robot Driver</a>
+                <a href="">Blade & Pivot</a>
+                <a href="">Arm & Hub</a>
+              </div>
+            </div>
+
+            <div class="dropdown_group">
+              <a class="group_main" href="">Assembled Item</a>
+              <div class="sub_group">
+                <a href="">Power Supply</a>
+                <a href="">Controller</a>
+                <a href="">Magnet</a>
+              </div>
+            </div>
+
+            <div class="dropdown_group">
+              <a class="group_main" href="">Consumable</a>
+              <div class="sub_group">
+                <a href="">Ceramic</a>
+                <a href="">Quartz</a>
+                <a href="">Bellows</a>
+                <a href="">Process gods</a>
+              </div>
+            </div>
+
+            <div class="dropdown_group">
+              <a class="group_main" href="">PCB</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav_item">
+          <a class="nav_link" href="./contact.html">Repair</a>
+          <div class="nav_dropdown">
+            <div class="dropdown_group">
+              <a href="">Heater</a>
+              <a href="">Heater (Photo)</a>
+              <a href="">Valve</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav_item">
+          <a class="nav_link" href="./contact.html">Contact Us</a>
+        </li>
+        <li class="nav_item nav_search">
+          <button class="btn_search" onclick="productSearch();">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="main_hero">
+
+    <div class="img_area">
+    </div>
+
+    <div class="overlay">
+      <div class="text_area">
+        <h1 class="">
+          SRC Tech
+        </h1>
+        <p class="">The Best Choice For Your Inquiry</p>
+
+        <div class="info_area">
+          <div class="info_box">
+            <i class="fa-solid fa-envelope"></i>
+            <div class="info_txt">
+              <strong>E-MAIL</strong>
+              <p>sales@srctech.co.kr</p>
+            </div>
+          </div>
+
+          <div class="info_box">
+            <i class="fa-solid fa-phone"></i>
+            <div class="info_txt">
+              <strong>CONTACT</strong>
+              <p>T. 82-31-378-9776 | F. 82-31-378-9778</p>
+            </div>
+          </div>
+
+          <div class="info_box">
+            <i class="fa-solid fa-building"></i>
+            <div class="info_txt">
+              <strong>ADDRESS</strong>
+              <p>40-23, Gajang-Ro 534 Beongil,</p>
+              <p>Osan-Si, Gyeonggi-Do, South Korea, 18104</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.2.js"></script>
+<script src="./js/script.js"></script>
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        cssMode: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        mousewheel: true,
+        keyboard: true,
+    });
+</script>
+</body>
+</html>

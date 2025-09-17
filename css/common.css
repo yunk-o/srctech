@@ -1,0 +1,86 @@
+@charset "UTF-8";
+/*===========================================================================
+	CSS 초기화
+============================================================================*/
+* {
+  font-family: "Roboto", "Noto Sans", "Noto Sans KR", "Open Sans", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, em, img, strong, b, i, dl, dt, dd, ol, ul, li,
+form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, footer, header,
+menu, nav, section, video, a {
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  color: #222;
+  line-height: 1.2;
+}
+
+body {
+  line-height: 1;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+strong {
+  display: inline-block;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+p {
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+img {
+  width: 100%;
+}
+
+input {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+textarea {
+  resize: none;
+}
+
+.container {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+/*헤더*/
+
+/*# sourceMappingURL=common.css.map */

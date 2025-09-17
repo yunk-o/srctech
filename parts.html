@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<div id="wrap">
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="./index.html"><img src="images/logo.jpg" alt=""></a>
+      </div>
+      <ul class="navbar">
+        <li><a href="./company.html">Company</a></li>
+        <li><a href="./parts.html">New Parts</a></li>
+        <li><a href="./work.html">Refurbished Parts and Works</a></li>
+        <li><a class="btn_contact" href="./contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="content">
+    <div class="sub_hero">
+      <h1>
+        New Parts
+      </h1>
+    </div>
+    <section class="product __sub">
+      <h2 class="title">PRODUCT</h2>
+      <div class="container">
+        <!-- tabs -->
+        <ul class="tabs">
+          <li class="tab-link current" data-tab="tab-1">All</li>
+          <li class="tab-link" data-tab="tab-2">Heater</li>
+          <li class="tab-link" data-tab="tab-3">Valve</li>
+          <li class="tab-link" data-tab="tab-4">Cable</li>
+          <li class="tab-link" data-tab="tab-4">Board</li>
+        </ul>
+        <div id="tab-1" class="tab-content current">
+          <ul class="items">
+            <li>
+              <a href="./parts_view.html">
+                <img src="./images/item1.png" alt="">
+                <p>CER HTR ASSY, 200mm PRODUCER,
+                  0010-03840</p>
+              </a>
+            </li>
+            <li>
+              <img src="./images/item1.png" alt="">
+              <p>CER HTR ASSY, 200mm PRODUCER,
+                0010-03840</p>
+            </li>
+            <li>
+              <img src="./images/item1.png" alt="">
+              <p>CER HTR ASSY, 200mm PRODUCER,
+                0010-03840</p>
+            </li>
+            <li>
+              <img src="./images/item1.png" alt="">
+              <p>CER HTR ASSY, 200mm PRODUCER,
+                0010-03840</p>
+            </li>
+            <li>
+              <img src="./images/item1.png" alt="">
+              <p>CER HTR ASSY, 200mm PRODUCER,
+                0010-03840</p>
+            </li>
+            <li>
+              <img src="./images/item1.png" alt="">
+              <p>CER HTR ASSY, 200mm PRODUCER,
+                0010-03840</p>
+            </li>
+          </ul>
+        </div>
+        <div id="tab-2" class="tab-content">2</div>
+        <div id="tab-3" class="tab-content">3</div>
+        <div class="pagination">
+          <a href=""><i class="fa-solid fa-arrow-left"></i></a>
+          <a href="">1</a>
+          <a href="">2</a>
+          <a href="">3</a>
+          <a href="">4</a>
+          <a href="">5</a>
+          <a href=""><i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="f_logo"></div>
+      <span>mail : sangryong.ha@srctech.co.kr</span>
+      <span>T. +82-31-378-9776</span>
+      <span>F. +82-31-378-9778</span>
+      <span>57-10, Oesammi-ro 152beon-gil, Osan-si, Gyeonggi-do, 18111,  Korea</span>
+      <span>www.srctech.co.kr</span>
+      <span>COPYRIGHT SRC © 2020. ALL RIGHTS RESERVED.</span>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.3.slim.js"></script>
+  <script>
+      $(document).ready(function(){
+          $('ul.tabs li').click(function(){
+              var tab_id = $(this).attr('data-tab');
+              $('ul.tabs li').removeClass('current');
+              $('.tab-content').removeClass('current');
+              $(this).addClass('current');
+              $("#"+tab_id).addClass('current');
+          })
+      })
+  </script>
+</div>
+</body>
+</html>

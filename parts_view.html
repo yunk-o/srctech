@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<div id="wrap">
+  <header>
+    <div class="container">
+      <div class="logo">
+        <a href="./index.html"><img src="images/logo.jpg" alt=""></a>
+      </div>
+      <ul class="navbar">
+        <li><a href="./company.html">Company</a></li>
+        <li><a href="./parts.html">New Parts</a></li>
+        <li><a href="./work.html">Refurbished Parts and Works</a></li>
+        <li><a class="btn_contact" href="./contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="content">
+    <div class="sub_hero">
+      <h1>
+        Refurbished Parts and Works
+      </h1>
+    </div>
+    <section class="product __view">
+      <div class="container">
+        <div class="img_area">
+          <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="./images/test1.jpg"/>
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/test2.jpg"/>
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/test3.jpg"/>
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/test4.jpg"/>
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/test1.jpg"/>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+          <div thumbsSlider="" class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="./images/test1.jpg"/>
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/test2.jpg"/>
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/test3.jpg"/>
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/test4.jpg"/>
+              </div>
+              <div class="swiper-slide">
+                <img src="./images/test1.jpg"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="description_area">
+          <div class="top">
+            <h2>0010-03843</h2>
+            <h3>ASSY, CER HTR, NGK, RF GND, 8", GIGA-SA</h3>
+          </div>
+          <div>
+            <div title="Condition">
+              <strong>Condition</strong>
+              <span>Refurbished</span>
+            </div>
+            <div title="Lead Time">
+              <strong>Lead Time</strong>
+              <span>2023-05-11</span>
+            </div>
+            <div title="Qty">
+              <strong>Qty</strong>
+              <span>1</span>
+            </div>
+            <div class="btns">
+              <button>Contact Us</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!--todo : modal에 .show 추가-->
+  <div class="modal show">
+    <div class="inner">
+      <button class="btn_close"><i class="fa-solid fa-close"></i></button>
+      <h2 class="title">Contact</h2>
+      <p class="indicator">GET IN TOUCH WITH US</p>
+      <div class="consult">
+        <div>
+          <ul class="input_group">
+            <li>
+              <label for="">Interested In</label>
+              <input type="text" placeholder="메세지를 입력해주세요">
+            </li>
+            <li>
+              <label for="">Name<span>*</span></label>
+              <input type="text" placeholder="메세지를 입력해주세요">
+            </li>
+            <li>
+              <label for="">Email Address<span>*</span></label>
+              <input type="text" placeholder="메세지를 입력해주세요">
+            </li>
+            <li>
+              <label for="">Subject<span>*</span></label>
+              <input type="text" placeholder="메세지를 입력해주세요">
+            </li>
+            <li>
+              <label for="">Phone Number<span>*</span></label>
+              <input type="text" placeholder="메세지를 입력해주세요">
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="input_message">
+            <label for=""></label>
+            <textarea name="" id="" placeholder="메세지를 입력해주세요"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="btns">
+        <button>Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="f_logo"></div>
+      <span>mail : sangryong.ha@srctech.co.kr</span>
+      <span>T. +82-31-378-9776</span>
+      <span>F. +82-31-378-9778</span>
+      <span>57-10, Oesammi-ro 152beon-gil, Osan-si, Gyeonggi-do, 18111,  Korea</span>
+      <span>www.srctech.co.kr</span>
+      <span>COPYRIGHT SRC © 2020. ALL RIGHTS RESERVED.</span>
+    </div>
+  </footer>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+      var swiper = new Swiper(".mySwiper", {
+          loop: true,
+          slidesPerView: 4,
+          freeMode: true,
+          watchSlidesProgress: true,
+      });
+      var swiper2 = new Swiper(".mySwiper2", {
+          loop: true,
+          navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+          },
+          thumbs: {
+              swiper: swiper,
+          },
+      });
+  </script>
+</div>
+</body>
+</html>

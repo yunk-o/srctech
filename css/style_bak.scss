@@ -1,0 +1,163 @@
+@import "common";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Sans:wght@300;500;700&display=swap');
+
+.main_hero {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: {
+    image: url("../images/contact4.jpg");
+    repeat: no-repeat;
+    size: cover;
+  };
+  h1 {
+    text-align: center;
+    font-size: 5rem;
+    color: white;
+  }
+  p {
+    font-size: 1.5rem;
+    color: white;
+  }
+}
+
+%main_container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 5rem 0;
+}
+
+%title {
+  text-align: center;
+  line-height: 1.5;
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+%indicator {
+  text-align: center;
+  line-height: 1.5;
+  font-size: $size3;
+}
+.company {
+  @extend %main_container;
+
+  .title {
+    @extend %title;
+    color: black;
+  }
+  .indicator {
+    @extend %indicator;
+    padding-top: 1.5rem;
+    color: $gray;
+  }
+
+  .info {
+    padding-top: 3rem;
+    li {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 5rem;
+    }
+
+    img {
+      max-width: 500px;
+    }
+    p {
+      width: calc(100% - 500px);
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      line-height: 1.5;
+      color: $gray;
+    }
+  }
+}
+
+.product {
+  @extend %main_container;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,69,83,1) 100%);
+  .title {
+    @extend %title;
+    color: white;
+  }
+  .indicator {
+    @extend %indicator;
+    color: white;
+  }
+  .items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+    li {
+      width: calc(100% / 3 - 4rem);
+      p {
+        font-size: $size3;
+        color: white;
+        text-align: center;
+      }
+    }
+
+  }
+}
+
+.contact {
+  @extend %main_container;
+  background-color: #555;
+
+  //background: {
+  //  image: url("../images/contact4.jpg");
+  //  repeat: no-repeat;
+  //  size: cover;
+  //}
+
+  .map {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+
+  .title {
+    @extend %title;
+    color: white;
+  }
+  .indicator {
+    @extend %indicator;
+    color: white;
+  }
+
+  ul {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    li {
+      label {
+        color: white;
+      }
+      span {
+        color: white;
+      }
+      input {
+        width: 100%;
+        padding: 0.5rem 1rem;
+      }
+      textarea {
+        width: 100%;
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+
+}
+
+
+
