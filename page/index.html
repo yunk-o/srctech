@@ -11,19 +11,119 @@
 </head>
 <body>
 <div id="wrap">
-  <div id="header"></div>
+  <header class="header">
+    <div class="header_container">
+      <div class="header_logo">
+        <a href="./index.html">
+          <img src="../images/src_logo_transparent.png" alt="">
+        </a>
+      </div>
+      <ul class="header_nav">
+        <li class="nav_item ">
+          <a class="nav_link " href="introduce.html">Company</a>
+          <div class="nav_dropdown">
+            <div class="dropdown_group">
+              <a href="introduce.html">Introduce</a>
+              <a href="business.html">Business</a>
+              <a href="certification.html">Certification</a>
+              <a href="information.html">Information</a>
+              <a href="global.html">Global Customer</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav_item ">
+          <a class="nav_link" href="parts.html">Parts</a>
+          <div class="nav_dropdown ">
+            <div class="dropdown_group">
+              <a class="group_main" href="">Heater</a>
+              <div class="sub_group">
+                <a href="">Ceramic HTR</a>
+                <a href="">TC</a>
+                <a href="">Track</a>
+              </div>
+            </div>
+
+            <div class="dropdown_group">
+              <a class="group_main" href="">Valve</a>
+            </div>
+
+            <div class="dropdown_group">
+              <a class="group_main" href="">Robot</a>
+              <div class="sub_group">
+                <a href="">Robot Driver</a>
+                <a href="">Blade & Pivot</a>
+                <a href="">Arm & Hub</a>
+              </div>
+            </div>
+
+            <div class="dropdown_group">
+              <a class="group_main" href="">Assembled Item</a>
+              <div class="sub_group">
+                <a href="">Power Supply</a>
+                <a href="">Controller</a>
+                <a href="">Magnet</a>
+              </div>
+            </div>
+
+            <div class="dropdown_group">
+              <a class="group_main" href="">Consumable</a>
+              <div class="sub_group">
+                <a href="">Ceramic</a>
+                <a href="">Quartz</a>
+                <a href="">Bellows</a>
+                <a href="">Process gods</a>
+              </div>
+            </div>
+
+            <div class="dropdown_group">
+              <a class="group_main" href="">PCB</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav_item">
+          <a class="nav_link" href="repair.html">Repair</a>
+          <div class="nav_dropdown">
+            <div class="dropdown_group">
+              <a href="">Heater</a>
+              <a href="">Heater (Photo)</a>
+              <a href="">Valve</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav_item">
+          <a class="nav_link" href="contact.html">Contact Us</a>
+        </li>
+        <li class="nav_item nav_search">
+          <button class="btn_search" onclick="productSearch();">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </header>
 
   <section class="main_hero">
 
-    <div class="img_area">
+    <div class="swiper mainSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="../images/main1.png" alt="slide1"></div>
+        <div class="swiper-slide"><img src="../images/global2.png" alt="slide2"></div>
+        <div class="swiper-slide"><img src="../images/company2.jpg" alt="slide3"></div>
+      </div>
     </div>
 
+    <div class="custom-pagination">
+      <div class="swiper-button-prev"></div>
+      <span class="current">01</span> / <span class="total">03</span>
+      <div class="swiper-button-next"></div>
+      <div class="progressbar"><span class="progress"></span></div>
+    </div>
+
+    <!-- 오버레이 텍스트 영역 -->
     <div class="overlay">
       <div class="text_area">
-        <h1 class="">
-          SRC Tech
-        </h1>
-        <p class="">The Best Choice For Your Inquiry</p>
+        <h1>SRC Tech</h1>
+        <p>The Best Choice For Your Inquiry</p>
 
         <div class="info_area">
           <div class="info_box">
@@ -55,11 +155,14 @@
     </div>
 
   </section>
-
-  <div id="footer"></div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="../js/script.js"></script>
+<script>
+
+
+
+</script>
 </body>
 </html>

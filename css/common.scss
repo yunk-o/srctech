@@ -77,9 +77,10 @@ textarea {
 
 .container {
   width: 100%;
+  max-width: 1470px;
   height: 100%;
   margin: 0 auto;
-  padding: 0 5rem;
+  padding: 0 2rem;
 }
 
 $main-color: #2a477b;
@@ -141,7 +142,7 @@ header {
   }
 
   .header_nav {
-    width: 50%;
+    width: 60%;
     min-width: 612px;
     height: 100%;
     display: flex;
@@ -149,10 +150,14 @@ header {
     justify-content: flex-end;
 
     .nav_item {
+      width: fit-content;
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100%;
+      &.nav_search {
+        width: 10%;
+      }
 
       &.on {
         .nav_dropdown {
@@ -233,7 +238,7 @@ header {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 1rem 2rem;
+      padding: 1rem;
       white-space: nowrap;
       font-weight: normal;
       font-size: 18px;
@@ -280,8 +285,23 @@ header {
     padding: 0 80px;
   }
   .sub_title {
-    margin-bottom: 2rem;
-    font-size: 2rem;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 2rem;
+    margin-bottom: 4rem;
+    font-size: 2.5rem;
+    border-bottom: 1px solid #333;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 38px;
+      margin: 0 12px 0 0;
+      background: $main-color;
+    }
   }
 }
 
@@ -289,7 +309,7 @@ header {
   position: relative;
   width: 100%;
   background: {
-    color: #282828;
+    color: #484848;
   };
 
   &::before {
@@ -324,11 +344,13 @@ header {
     img {
       max-width: 160px;
       display: block;
+      filter: brightness(0.5);
     }
   }
 
   .footer_info {
     line-height: 1.6;
+    margin-left: 1.25rem;
 
     p {
       margin: 0 0 0.25rem;
