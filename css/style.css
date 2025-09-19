@@ -955,7 +955,34 @@ body:not(.fp-responsive) .fp-overflow {
   background-position: center;
   background-size: cover;
 }
+.sub_hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.sub_hero.company {
+  background-image: url("../images/c3_bg2.jpg");
+}
+.sub_hero.parts {
+  background-image: url("../images/main_hero.jpg");
+}
+.sub_hero.parts::before {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.sub_hero.repair {
+  background-image: url("../images/contact2.jpg");
+}
+.sub_hero.contact {
+  background-image: url("../images/contact3.jpg");
+}
 .sub_hero h1 {
+  position: absolute;
+  top: 45%;
   color: white;
   font-size: 3rem;
 }
@@ -1177,6 +1204,17 @@ body:not(.fp-responsive) .fp-overflow {
 }
 .certification .certification_items a img {
   height: 100%;
+}
+
+.repair .lst_repair {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 1rem;
+}
+.repair .lst_repair img {
+  width: calc(25% - 0.75rem);
+  aspect-ratio: 1/1;
 }
 
 .consult {
