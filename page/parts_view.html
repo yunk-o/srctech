@@ -31,74 +31,90 @@
             </div>
           </div>
         </li>
-        <li class="nav_item">
+        <li class="nav_item ">
           <a class="nav_link" href="parts.html">Parts</a>
           <div class="nav_dropdown ">
             <div class="dropdown_group">
-              <a class="group_main" href="">Heater</a>
+              <a class="group_main" href="parts.html">Heater</a>
               <div class="sub_group">
-                <a href="">Ceramic HTR</a>
-                <a href="">TC</a>
-                <a href="">Track</a>
+                <a href="parts.html">Ceramic HTR</a>
+                <a href="parts.html">TC</a>
+                <a href="parts.html">Track</a>
               </div>
             </div>
 
             <div class="dropdown_group">
-              <a class="group_main" href="">Valve</a>
+              <a class="group_main" href="parts.html">Valve</a>
             </div>
 
             <div class="dropdown_group">
-              <a class="group_main" href="">Robot</a>
+              <a class="group_main" href="parts.html">Robot</a>
               <div class="sub_group">
-                <a href="">Robot Driver</a>
-                <a href="">Blade & Pivot</a>
-                <a href="">Arm & Hub</a>
+                <a href="parts.html">Robot Driver</a>
+                <a href="parts.html">Blade & Pivot</a>
+                <a href="parts.html">Arm & Hub</a>
               </div>
             </div>
 
             <div class="dropdown_group">
-              <a class="group_main" href="">Assembled Item</a>
+              <a class="group_main" href="parts.html">Assembled Item</a>
               <div class="sub_group">
-                <a href="">Power Supply</a>
-                <a href="">Controller</a>
-                <a href="">Magnet</a>
+                <a href="parts.html">Power Supply</a>
+                <a href="parts.html">Controller</a>
+                <a href="parts.html">Magnet</a>
               </div>
             </div>
 
             <div class="dropdown_group">
-              <a class="group_main" href="">Consumable</a>
+              <a class="group_main" href="parts.html">Consumable</a>
               <div class="sub_group">
-                <a href="">Ceramic</a>
-                <a href="">Quartz</a>
-                <a href="">Bellows</a>
-                <a href="">Process gods</a>
+                <a href="parts.html">Ceramic</a>
+                <a href="parts.html">Quartz</a>
+                <a href="parts.html">Bellows</a>
+                <a href="parts.html">Process gods</a>
               </div>
             </div>
 
             <div class="dropdown_group">
-              <a class="group_main" href="">PCB</a>
+              <a class="group_main" href="parts.html">PCB</a>
             </div>
           </div>
         </li>
         <li class="nav_item">
-          <a class="nav_link" href="./repair_heater.html">Repair</a>
-          <div class="nav_dropdown">
+          <a class="nav_link" href="repair_heater.html">Repair</a>
+          <div class="nav_dropdown ">
             <div class="dropdown_group">
-              <a href="">Heater</a>
-              <a href="">Heater (Photo)</a>
-              <a href="">Valve</a>
+              <a href="repair_heater.html">Heater</a>
+              <a href="repair_heater_photo.html">Heater (Photo)</a>
+              <a href="repair_valve.html">Valve</a>
             </div>
           </div>
         </li>
         <li class="nav_item">
           <a class="nav_link" href="contact.html">Contact Us</a>
         </li>
-        <li class="nav_item nav_search">
-          <button class="btn_search" onclick="productSearch();">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </li>
       </ul>
+
+      <div class="nav_search">
+        <button class="nav_link btn_search" onclick="openSearchBox();">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+
+      <div class="search_overlay" id="searchOverlay">
+        <button class="btn_close" onclick="closeSearchBox();">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="search_content">
+          <h2>Search site content</h2>
+          <form onsubmit="return searchAction(event);">
+            <input type="text" placeholder="Enter your search term here" />
+            <button type="submit" class="btn_submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   </header>
   <div class="sub_hero repair">

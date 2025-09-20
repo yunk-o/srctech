@@ -142,22 +142,19 @@ header {
   }
 
   .header_nav {
-    width: 60%;
-    min-width: 612px;
+    width: 45%;
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
 
     .nav_item {
-      width: fit-content;
+      width: 25%;
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100%;
-      &.nav_search {
-        width: 10%;
-      }
+
 
       &.on {
         .nav_dropdown {
@@ -171,16 +168,17 @@ header {
         transform: translateY(-10px);
         transition: opacity 0.3s ease, transform 0.3s ease;
         width: 100%;
-        min-height: 120px;
-        flex-direction: column;
+        min-height: 80px;
+        flex-wrap: wrap;
         align-items: flex-start;
-        justify-content: flex-end;
-        gap: 0.5rem;
+        justify-content: center;
+        gap: 0.5rem 2rem;
         position: absolute;
         top: 80px;
         left: 0;
         background: white;
         padding: 1rem 32px;
+        border-top: 1px solid #f5f5f5;
 
         &.on {
           display: flex; /* flex 레이아웃 유지 */
@@ -190,10 +188,9 @@ header {
         }
 
         .dropdown_group {
-          width: 546px;
-          margin-left: auto;
+          width: 45%;
           display: flex;
-          justify-content: space-between;
+          justify-content: space-around;
           gap: 2rem;
           padding: 1rem 0;
 
@@ -207,9 +204,11 @@ header {
             font-size: 18px;
             font-weight: bold;
             color: black;
+            margin-right: auto;
           }
 
           .sub_group {
+            width: calc(100% - 160px);
             display: flex;
             gap: 1rem;
           }
@@ -243,6 +242,7 @@ header {
       font-weight: normal;
       font-size: 18px;
       color: white;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 
       &:hover {
         opacity: 0.9;
@@ -252,23 +252,118 @@ header {
     .nav_dropdown {
       display: flex;
     }
+  }
 
-    .nav_search {
-      .btn_search {
-        display: block;
-        font-size: 0;
-        width: 56px;
-        height: 56px;
-        background: none;
-        border: none;
+  .nav_search {
+    width: 140px;
+    position: relative;
 
-        i {
-          font-size: 1.25rem;
-          color: white;
+    .btn_search {
+      display: block;
+      width: 56px;
+      height: 56px;
+      background: none;
+      border: none;
+      font-size: 0;
+      cursor: pointer;
+      margin-left: auto;
+
+      i {
+        font-size: 1.25rem;
+        color: #fff; // 헤더 위에서 흰색 아이콘
+      }
+    }
+  }
+
+  .search_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    background: #fff;
+    display: none; // 기본은 숨김
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 2rem;
+
+    &.active {
+      display: flex; // 활성화 시 전체 화면에 표시
+    }
+
+    .btn_close {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #333;
+
+      &:hover {
+        color: #28a745;
+      }
+    }
+
+    .search_content {
+      text-align: center;
+      max-width: 700px;
+      width: 100%;
+
+      h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 2rem;
+      }
+
+      form {
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        input {
+          flex: 1;
+          height: 56px;
+          font-size: 1.1rem;
+          border: none;
+          border-bottom: 2px solid $main-color;
+          outline: none;
+          padding: 0 0.75rem;
+          transition: border-color 0.3s ease;
+        }
+
+        .btn_submit {
+          height: 56px;
+          width: 56px;
+          border: none;
+          background: $main-color;
+          color: #333;
+          font-size: 1.2rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          i {
+            color: white !important;
+          }
+
+          &:hover {
+
+            color: #fff;
+          }
         }
       }
     }
   }
+
 
   .btn_contact {
     background-color: $main-color;
@@ -279,8 +374,13 @@ header {
   }
 }
 
+
 .content {
-  margin: 80px 0;
+  padding: 80px 0;
+
+  &.bg_gray {
+    background-color: #f8f8fa;
+  }
   .container {
     padding: 0 80px;
   }
@@ -309,7 +409,7 @@ header {
   position: relative;
   width: 100%;
   background: {
-    color: #484848;
+    color: #f4f4f4;
   };
 
   &::before {
@@ -344,7 +444,6 @@ header {
     img {
       max-width: 160px;
       display: block;
-      filter: brightness(0.5);
     }
   }
 
@@ -354,7 +453,6 @@ header {
 
     p {
       margin: 0 0 0.25rem;
-      color: #ddd;
     }
 
     small {
@@ -369,8 +467,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #121212;
-    color: rgba(214, 214, 214, 0.5);
+    background-color: $main-color;
+    color: white;
     padding: 1rem 0;
     font-size: 16px;
     margin: 0 auto;

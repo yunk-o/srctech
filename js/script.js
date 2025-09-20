@@ -112,3 +112,22 @@ function startProgress() {
     }, 50);
 }
 
+
+function openSearchBox() {
+    const overlay = document.getElementById("searchOverlay");
+    overlay.classList.add("active");
+    overlay.querySelector("input").focus();
+}
+
+function closeSearchBox() {
+    document.getElementById("searchOverlay").classList.remove("active");
+}
+
+function searchAction(event) {
+    event.preventDefault();
+    const query = event.target.querySelector("input").value.trim();
+    if (query) {
+        window.location.href = "/search?q=" + encodeURIComponent(query);
+    }
+    return false;
+}

@@ -39,14 +39,13 @@ body:not(.fp-responsive) .fp-overflow {
 
   // 오버레이
   .overlay {
+    z-index: 5;
     position: absolute;
     top: 0;
     left: 0;
     display: block;
     width: 100%;
     height: 100%;
-    background-color: rgba(black, 0.6);
-    z-index: 5;
   }
 
   // 텍스트 박스
@@ -1055,17 +1054,212 @@ body:not(.fp-responsive) .fp-overflow {
 }
 
 
-.repair {
+.repair_procedure {
+  padding: 3rem 2rem;
 
-  .lst_repair {
+  .repair_title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0078eb;
+    margin-bottom: 3rem;
+  }
+
+  .repair_flow {
     display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    gap: 1rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    position: relative;
 
-    img {
-      width: calc((100% / 4) - (3rem / 4));
-      aspect-ratio: 1/1;
+    /* 화살표 라인 */
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #0078eb; // 포인트 컬러 라인
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -37px;
+      right: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 16px solid #0078eb; // 화살촉
+    }
+  }
+
+  .repair_step {
+    flex: 1;
+    text-align: center;
+
+    .repair_box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      background: #fff;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 20px rgba(0, 120, 235, 0.25);
+      }
+    }
+
+    .step_title {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #333;
+    }
+  }
+}
+
+.repair_heater2 {
+  padding: 2rem;
+
+  .repair_title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0078eb;
+    margin-bottom: 2rem;
+  }
+
+  .repair_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .repair_card {
+    position: relative;
+    height: 220px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1rem;
+      transition: background 0.3s ease;
+
+      .step_num {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #fff;
+      }
+
+      .line {
+        display: block;
+        width: 24px;   // ✅ 짧게
+        height: 2px;
+        background: #fff;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: white;
+      }
+    }
+
+    &:hover .overlay {
+      background: rgba(0, 0, 0, 0.6);
+    }
+  }
+}
+
+.repair_valve {
+  padding: 2rem;
+
+  .repair_title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0078eb;
+    margin-bottom: 2rem;
+  }
+
+  .repair_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .repair_card {
+    position: relative;
+    height: 220px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1rem;
+      transition: background 0.3s ease;
+
+      .step_num {
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        font-size: 2rem;     // ✅ 수정
+        font-weight: 700;
+        color: #fff;         // ✅ 흰색
+      }
+
+      .line {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: #fff;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        margin: 0;
+        font-size: 1.25rem;  // ✅ 수정
+        font-weight: 600;
+        color: #fff;         // ✅ 흰색
+      }
+    }
+
+    &:hover .overlay {
+      background: rgba(0, 0, 0, 0.6);
     }
   }
 }
