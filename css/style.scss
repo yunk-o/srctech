@@ -921,8 +921,8 @@ body:not(.fp-responsive) .fp-overflow {
 }
 
 .introduce {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
   margin-top: 2rem;
 
@@ -987,8 +987,6 @@ body:not(.fp-responsive) .fp-overflow {
   }
 }
 
-
-
 .information {
   .information_items {
     display: flex;
@@ -1035,6 +1033,46 @@ body:not(.fp-responsive) .fp-overflow {
   }
 }
 
+.map_area {
+  position: relative;
+  display: inline-block;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .pin {
+    position: absolute;
+    transform: translate(-50%, -100%);
+    text-align: center;
+    font-size: 1.5rem; /* 아이콘 크기 */
+
+    i {
+      color: white;
+    }
+
+    span {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.875rem;
+      color: #fff;
+      background: rgba(0,0,0,0.6);
+      padding: 2px 6px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    &.korea {
+      top: 50%;
+      left: 80%;
+    }
+  }
+}
+
+
+
 .certification {
   .certification_items {
     display: grid;
@@ -1052,7 +1090,6 @@ body:not(.fp-responsive) .fp-overflow {
     }
   }
 }
-
 
 .repair_procedure {
   padding: 3rem 2rem;
