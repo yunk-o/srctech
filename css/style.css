@@ -593,7 +593,7 @@ body:not(.fp-responsive) .fp-overflow {
   padding: 5rem 0;
 }
 
-.info .title, .product .title, .company .title {
+.info .title, .company .title {
   font-size: 48px;
   font-weight: 700;
   color: #333;
@@ -602,7 +602,7 @@ body:not(.fp-responsive) .fp-overflow {
   text-align: center;
 }
 
-.product .indicator, .company .indicator {
+.company .indicator {
   text-align: center;
   line-height: 1.5;
   font-size: 1.25rem;
@@ -675,25 +675,23 @@ body:not(.fp-responsive) .fp-overflow {
 }
 
 .product {
-  background-color: #092744;
-}
-.product .title {
-  color: white;
-}
-.product .indicator {
-  color: white;
+  max-width: calc(1000px + 2rem);
+  margin: 0 auto;
 }
 .product .items {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
   gap: 2rem;
   margin-top: 3rem;
   padding: 0 1.5rem 3rem;
+  /* 📱 반응형 (모바일) */
 }
 .product .items li {
+  flex: 1 1 calc(33.333% - 2rem);
+  max-width: calc(33.333% - 2rem);
   background: #fff;
   border-radius: 0.75rem;
-  width: calc(33.333% - 1.5rem);
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -710,89 +708,95 @@ body:not(.fp-responsive) .fp-overflow {
 }
 .product .items li img {
   width: 100%;
-  object-fit: cover;
-  background: #f9f9f9;
   aspect-ratio: 1/1;
+  object-fit: cover;
 }
 .product .items li p {
-  flex: 1;
-  padding: 1.25rem 1rem;
+  margin: 0;
   text-align: center;
-  font-size: 1.125rem;
+  padding: 1rem;
+  border-top: 1px solid #eee;
+}
+.product .items li p strong {
+  display: block;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #222;
+  color: #2a477b;
   line-height: 1.4;
 }
 .product .items li p span {
   display: block;
-  margin-top: 0.25rem;
-  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
   font-weight: 500;
-  color: #666;
+  color: #333;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
-.product.__main .swiper-wrapper {
-  margin-bottom: 5rem;
+@media (max-width: 1024px) {
+  .product .items li {
+    flex: 1 1 calc(50% - 2rem);
+    max-width: calc(50% - 2rem);
+  }
 }
-.product.__sub {
+@media (max-width: 768px) {
+  .product .items li {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+.product_view {
   background-color: white;
 }
-.product.__sub .title {
-  color: black;
-}
-.product.__sub li p {
-  color: black;
-}
-.product.__view {
-  background-color: white;
-}
-.product.__view .container {
+.product_view .container {
   width: 1000px;
   display: flex;
   align-items: center;
   gap: 2rem;
 }
-.product.__view .img_area {
+.product_view .img_area {
   width: 40%;
   padding: 0.5rem;
 }
-.product.__view .img_area img {
+.product_view .img_area img {
   object-fit: fill;
   aspect-ratio: 1/1;
 }
-.product.__view .img_area .swiper-slide-visible {
+.product_view .img_area .swiper-slide-visible {
   opacity: 0.6;
 }
-.product.__view .img_area .swiper-slide-thumb-active {
+.product_view .img_area .swiper-slide-thumb-active {
   opacity: 1;
 }
-.product.__view .description_area {
+.product_view .description_area {
   width: 60%;
 }
-.product.__view .description_area > div {
+.product_view .description_area > div {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   padding: 0 2rem 2rem;
 }
-.product.__view .description_area h2 {
+.product_view .description_area h2 {
   font-size: 5rem;
   text-align: center;
   color: #2a477b;
 }
-.product.__view .description_area h3 {
+.product_view .description_area h3 {
   font-size: 1.25rem;
   text-align: center;
   font-weight: normal;
   padding-bottom: 2rem;
   border-bottom: 1px solid #dddddd;
 }
-.product.__view .description_area strong {
+.product_view .description_area strong {
   position: relative;
   width: 200px;
   font-size: 1.25rem;
   padding-left: 1rem;
 }
-.product.__view .description_area strong::before {
+.product_view .description_area strong::before {
   content: "";
   position: absolute;
   left: 4px;
@@ -801,23 +805,23 @@ body:not(.fp-responsive) .fp-overflow {
   width: 4px;
   height: 1rem;
 }
-.product.__view .description_area .btns {
+.product_view .description_area .btns {
   margin-top: 1rem;
 }
-.product.__view .description_area .btns .del {
+.product_view .description_area .btns .del {
   background-color: #777777;
 }
-.product.__view .update_img p {
+.product_view .update_img p {
   padding-top: 1rem;
 }
-.product.__view .update_img button {
+.product_view .update_img button {
   width: 1.25rem;
   height: 1.25rem;
   border-radius: 100%;
   border: 0;
   background-color: #777777;
 }
-.product.__view .update_img button i {
+.product_view .update_img button i {
   font-size: 0.825rem;
   color: white;
 }
@@ -1275,6 +1279,15 @@ body:not(.fp-responsive) .fp-overflow {
 .map_area {
   position: relative;
   display: inline-block;
+  text-align: center;
+}
+.map_area .map_title {
+  display: inline-block;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2a477b;
+  margin-bottom: 1rem;
 }
 .map_area img {
   display: block;
@@ -1305,6 +1318,38 @@ body:not(.fp-responsive) .fp-overflow {
   top: 50%;
   left: 80%;
 }
+.map_area .pin.usa {
+  top: 46%;
+  left: 16%;
+}
+.map_area .pin.germany {
+  top: 42%;
+  left: 49%;
+}
+.map_area .pin.france {
+  top: 45%;
+  left: 45%;
+}
+.map_area .pin.italy {
+  top: 49%;
+  left: 50%;
+}
+.map_area .pin.china {
+  top: 46%;
+  left: 74%;
+}
+.map_area .pin.japan {
+  top: 51%;
+  left: 84%;
+}
+.map_area .pin.taiwan {
+  top: 58%;
+  left: 79%;
+}
+.map_area .pin.malaysia {
+  top: 70%;
+  left: 74%;
+}
 
 .certification .certification_items {
   display: grid;
@@ -1322,70 +1367,181 @@ body:not(.fp-responsive) .fp-overflow {
 }
 
 .repair_procedure {
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
 }
 .repair_procedure .repair_title {
-  text-align: center;
   font-size: 2rem;
   font-weight: 700;
-  color: #0078eb;
+  text-align: center;
   margin-bottom: 3rem;
+  color: #222;
+  text-transform: uppercase;
 }
 .repair_procedure .repair_flow {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem;
-  position: relative;
-  /* 화살표 라인 */
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
 }
-.repair_procedure .repair_flow::before {
-  content: "";
-  position: absolute;
-  bottom: -30px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: #0078eb;
-}
-.repair_procedure .repair_flow::after {
-  content: "";
-  position: absolute;
-  bottom: -37px;
-  right: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 16px solid #0078eb;
-}
-.repair_procedure .repair_step {
-  flex: 1;
+.repair_procedure .repair_flow .repair_step {
   text-align: center;
 }
-.repair_procedure .repair_step .repair_box {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+.repair_procedure .repair_flow .repair_step .repair_box {
+  display: grid;
+  gap: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
   background: #fff;
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.repair_procedure .repair_step .repair_box img {
+.repair_procedure .repair_flow .repair_step .repair_box img {
   width: 100%;
-  height: 120px;
+  height: auto;
+  border-radius: 0.25rem;
   object-fit: cover;
-  border-radius: 8px;
 }
-.repair_procedure .repair_step .repair_box:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0, 120, 235, 0.25);
-}
-.repair_procedure .repair_step .step_title {
+.repair_procedure .repair_flow .repair_step .step_title {
   margin-top: 1rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #333;
+}
+
+.repair_procedure {
+  padding: 4rem 2rem;
+  /* 🔹 Flow 1 : 4단계 */
+  /* 🔹 Flow 2,3 : Before → After */
+  /* 📱 반응형 */
+}
+.repair_procedure .repair_title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2a477b;
+  position: relative;
+  text-transform: uppercase;
+}
+.repair_procedure .repair_title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #2a477b;
+  border-radius: 2px;
+}
+.repair_procedure .repair_flow.steps .repair_wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.repair_procedure .repair_flow.steps .repair_step {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.repair_procedure .repair_flow.steps .repair_step .repair_box {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  height: 100%;
+}
+.repair_procedure .repair_flow.steps .repair_step .repair_box img {
+  width: 100%;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+.repair_procedure .repair_flow.steps .repair_step .step_title {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+.repair_procedure .repair_flow.compare {
+  text-align: center;
+}
+.repair_procedure .repair_flow.compare .compare_wrap {
+  display: flex;
+  align-items: stretch;
+  /* 높이 맞춤 */
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.repair_procedure .repair_flow.compare .repair_step {
+  text-align: center;
+}
+.repair_procedure .repair_flow.compare .repair_step .repair_box {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  /* Flow3 Before → Grid */
+}
+.repair_procedure .repair_flow.compare .repair_step .repair_box img {
+  width: 100%;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+.repair_procedure .repair_flow.compare .repair_step .repair_box .img_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  height: 100%;
+}
+.repair_procedure .repair_flow.compare .repair_step .repair_box .img_grid img:first-child {
+  grid-column: span 2;
+}
+.repair_procedure .repair_flow.compare .repair_step .step_title {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.repair_procedure .repair_flow.compare .repair_step .step_title.before {
+  color: #d32f2f;
+}
+.repair_procedure .repair_flow.compare .repair_step .step_title.after {
+  color: #2e7d32;
+}
+.repair_procedure .repair_flow.compare .arrow_box {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+.repair_procedure .repair_flow.compare .arrow_box .arrow_icon {
+  font-size: 3rem;
+  color: #2a477b;
+  animation: arrowMove 1.5s infinite;
+}
+@keyframes arrowMove {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(10px);
+    opacity: 0.6;
+  }
+}
+@media (max-width: 1024px) {
+  .repair_procedure .repair_flow.steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .repair_procedure .repair_flow.steps {
+    grid-template-columns: 1fr;
+  }
+  .repair_procedure .repair_flow.compare .compare_wrap {
+    flex-direction: column;
+  }
+  .repair_procedure .arrow_box {
+    justify-content: center;
+  }
 }
 
 .repair_heater2 {
@@ -1425,7 +1581,7 @@ body:not(.fp-responsive) .fp-overflow {
 .repair_heater2 .repair_card .overlay .step_num {
   position: absolute;
   top: 10px;
-  right: 12px;
+  left: 12px;
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
@@ -1484,7 +1640,7 @@ body:not(.fp-responsive) .fp-overflow {
 .repair_valve .repair_card .overlay .step_num {
   position: absolute;
   top: 10px;
-  right: 12px;
+  left: 12px;
   font-size: 2rem;
   font-weight: 700;
   color: #fff;

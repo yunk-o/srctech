@@ -323,29 +323,22 @@ body:not(.fp-responsive) .fp-overflow {
 }
 
 .product {
-  background-color: #092744;
-
-  .title {
-    @extend %title;
-    color: white;
-  }
-
-  .indicator {
-    @extend %indicator;
-    color: white;
-  }
+  max-width: calc(1000px + 2rem);
+  margin: 0 auto;
 
   .items {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
     gap: 2rem;
     margin-top: 3rem;
     padding: 0 1.5rem 3rem;
 
     li {
+      flex: 1 1 calc(33.333% - 2rem);
+      max-width: calc(33.333% - 2rem);
       background: #fff;
       border-radius: 0.75rem;
-      width: calc(33.333% - 1.5rem);
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
@@ -364,53 +357,53 @@ body:not(.fp-responsive) .fp-overflow {
 
       img {
         width: 100%;
-        object-fit: cover;
-        background: #f9f9f9;
         aspect-ratio: 1 / 1;
+        object-fit: cover;
       }
 
       p {
-        flex: 1;
-        padding: 1.25rem 1rem;
+        margin: 0;
         text-align: center;
-        font-size: 1.125rem;
-        font-weight: 700;
-        color: #222;
-        line-height: 1.4;
-
+        padding: 1rem;
+        border-top: 1px solid #eee;
+        strong {
+          display: block;
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: $main-color;
+          line-height: 1.4;
+        }
         span {
           display: block;
-          margin-top: 0.25rem;
-          font-size: 0.9rem;
+          margin-top: 0.5rem;
+          font-size: 0.95rem;
           font-weight: 500;
-          color: #666;
+          color: #333;
+          line-height: 1.5;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
         }
       }
     }
-  }
 
-
-  &.__main {
-    .swiper-wrapper {
-      margin-bottom: 5rem;
-    }
-  }
-
-  &.__sub {
-    background-color: white;
-
-    .title {
-      color: black;
+    /* 📱 반응형 (모바일) */
+    @media (max-width: 1024px) {
+      li {
+        flex: 1 1 calc(50% - 2rem);
+        max-width: calc(50% - 2rem);
+      }
     }
 
-    li {
-      p {
-        color: black;
+    @media (max-width: 768px) {
+      li {
+        flex: 1 1 100%;
+        max-width: 100%;
       }
     }
   }
 
-  &.__view {
+
+  &_view {
     background-color: white;
 
     .container {
@@ -1036,6 +1029,16 @@ body:not(.fp-responsive) .fp-overflow {
 .map_area {
   position: relative;
   display: inline-block;
+  text-align: center;
+
+  .map_title {
+    display: inline-block;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: $main-color;
+    margin-bottom: 1rem;
+  }
 
   img {
     display: block;
@@ -1064,10 +1067,15 @@ body:not(.fp-responsive) .fp-overflow {
       white-space: nowrap;
     }
 
-    &.korea {
-      top: 50%;
-      left: 80%;
-    }
+    &.korea { top: 50%; left: 80%; }
+    &.usa { top: 46%; left: 16%; }
+    &.germany { top: 42%; left: 49%; }
+    &.france { top: 45%; left: 45%; }
+    &.italy { top: 49%; left: 50%; }
+    &.china { top: 46%; left: 74%; }
+    &.japan { top: 51%; left: 84%; }
+    &.taiwan { top: 58%; left: 79%; }
+    &.malaysia { top: 70%; left: 74%; }
   }
 }
 
@@ -1092,80 +1100,202 @@ body:not(.fp-responsive) .fp-overflow {
 }
 
 .repair_procedure {
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
 
   .repair_title {
-    text-align: center;
     font-size: 2rem;
     font-weight: 700;
-    color: #0078eb;
+    text-align: center;
     margin-bottom: 3rem;
+    color: #222;
+    text-transform: uppercase;
   }
 
   .repair_flow {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 2rem;
-    position: relative;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
 
-    /* 화살표 라인 */
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: -30px;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: #0078eb; // 포인트 컬러 라인
+    .repair_step {
+      text-align: center;
+
+      .repair_box {
+        display: grid;
+        gap: 0.5rem;
+        border: 1px solid #ddd;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+        background: #fff;
+
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 0.25rem;
+          object-fit: cover;
+        }
+      }
+
+      .step_title {
+        margin-top: 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #333;
+      }
     }
+  }
+}
+
+.repair_procedure {
+  padding: 4rem 2rem;
+
+  .repair_title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: $main-color;
+    position: relative;
+    text-transform: uppercase;
 
     &::after {
       content: "";
       position: absolute;
-      bottom: -37px;
-      right: 0;
-      border-top: 10px solid transparent;
-      border-bottom: 10px solid transparent;
-      border-left: 16px solid #0078eb; // 화살촉
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: $main-color;
+      border-radius: 2px;
     }
   }
 
-  .repair_step {
-    flex: 1;
-    text-align: center;
+  /* 🔹 Flow 1 : 4단계 */
+  .repair_flow.steps {
 
-    .repair_box {
+    .repair_wrap {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .repair_step {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
-      background: #fff;
-      border-radius: 12px;
-      padding: 1rem;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
 
-      img {
-        width: 100%;
-        height: 120px;
-        object-fit: cover;
-        border-radius: 8px;
+      .repair_box {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 0.75rem;
+        padding: 1rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        height: 100%;
+
+        img {
+          width: 100%;
+          border-radius: 0.5rem;
+          object-fit: cover;
+        }
       }
 
-      &:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 8px 20px rgba(0, 120, 235, 0.25);
+      .step_title {
+        margin-top: 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #333;
+      }
+    }
+  }
+
+  /* 🔹 Flow 2,3 : Before → After */
+  .repair_flow.compare {
+    text-align: center;
+
+    .compare_wrap {
+      display: flex;
+      align-items: stretch; /* 높이 맞춤 */
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .repair_step {
+      text-align: center;
+
+      .repair_box {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 0.75rem;
+        padding: 1rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+
+        img {
+          width: 100%;
+          border-radius: 0.5rem;
+          object-fit: cover;
+        }
+
+        /* Flow3 Before → Grid */
+        .img_grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0.5rem;
+          height: 100%;
+
+          img:first-child {
+            grid-column: span 2;
+          }
+        }
+      }
+
+      .step_title {
+        margin-top: 1rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+
+        &.before { color: #d32f2f; }
+        &.after { color: #2e7d32; }
       }
     }
 
-    .step_title {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #333;
+    .arrow_box {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+
+      .arrow_icon {
+        font-size: 3rem;
+        color: $main-color;
+        animation: arrowMove 1.5s infinite;
+      }
+    }
+  }
+
+  @keyframes arrowMove {
+    0%, 100% { transform: translateX(0); opacity: 1; }
+    50% { transform: translateX(10px); opacity: 0.6; }
+  }
+
+  /* 📱 반응형 */
+  @media (max-width: 1024px) {
+    .repair_flow.steps {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .repair_flow.steps {
+      grid-template-columns: 1fr;
+    }
+    .repair_flow.compare .compare_wrap {
+      flex-direction: column;
+    }
+    .arrow_box {
+      justify-content: center;
     }
   }
 }
+
 
 .repair_heater2 {
   padding: 2rem;
@@ -1206,7 +1336,7 @@ body:not(.fp-responsive) .fp-overflow {
       .step_num {
         position: absolute;
         top: 10px;
-        right: 12px;
+        left: 12px;
         font-size: 2rem;
         font-weight: 700;
         color: #fff;
@@ -1273,10 +1403,10 @@ body:not(.fp-responsive) .fp-overflow {
       .step_num {
         position: absolute;
         top: 10px;
-        right: 12px;
-        font-size: 2rem;     // ✅ 수정
+        left: 12px;
+        font-size: 2rem;
         font-weight: 700;
-        color: #fff;         // ✅ 흰색
+        color: #fff;
       }
 
       .line {
