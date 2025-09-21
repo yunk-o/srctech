@@ -131,3 +131,18 @@ function searchAction(event) {
     }
     return false;
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const navItems = document.querySelectorAll(".header_nav .nav_item");
+
+    navItems.forEach((item) => {
+        const link = item.querySelector(".nav_link");
+
+        link.addEventListener("click", (e) => {
+            if (window.innerWidth <= 1024) { // 모바일일 때만 아코디언
+                e.preventDefault();
+                item.classList.toggle("open");
+            }
+        });
+    });
+});

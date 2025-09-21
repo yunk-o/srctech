@@ -319,6 +319,81 @@ header .btn_contact {
   border-radius: 2rem;
   font-weight: bold;
 }
+header .nav_toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+@media (max-width: 768px) {
+  header .nav_toggle {
+    display: block;
+  }
+  header .header_nav {
+    display: none;
+    /* 기본 숨김 */
+    flex-direction: column;
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #eee;
+    z-index: 999;
+  }
+  header body.nav_open .header_nav {
+    display: flex;
+  }
+  header .nav_item {
+    width: 100%;
+    border-bottom: 1px solid #f5f5f5;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    /* 아코디언 드롭다운 */
+  }
+  header .nav_item .nav_link {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    color: #333 !important;
+    text-shadow: none;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+  }
+  header .nav_item .nav_link::after {
+    content: "\f078";
+    /* 폰트어썸 caret-down */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+  }
+  header .nav_item .nav_dropdown {
+    display: none;
+    /* 기본 숨김 */
+    flex-direction: column;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: none;
+    box-shadow: none;
+    position: static;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+  header .nav_item.open .nav_link::after {
+    transform: rotate(180deg);
+    /* 열릴 때 화살표 위로 */
+  }
+  header .nav_item.open .nav_dropdown {
+    display: flex;
+    /* 아코디언처럼 펼침 */
+  }
+}
 
 .content {
   padding: 80px 0;
@@ -1039,6 +1114,7 @@ body:not(.fp-responsive) .fp-overflow {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  /* 🔹 반응형 (768px 이하) */
 }
 .sub_hero::before {
   content: "";
@@ -1170,12 +1246,64 @@ body:not(.fp-responsive) .fp-overflow {
   top: 68px;
   z-index: 1;
 }
+@media (max-width: 768px) {
+  .sub_hero .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .sub_hero ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+  .sub_hero ul li {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+  }
+  .sub_hero ul li .cate-button {
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    font-size: 1rem;
+    position: relative;
+  }
+  .sub_hero ul li .cate-button::after {
+    content: "\f078";
+    /* Font Awesome caret-down */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 0.8rem;
+    position: absolute;
+    right: 1rem;
+    transition: transform 0.3s;
+  }
+  .sub_hero ul li dl {
+    position: static;
+    border: none;
+    border-top: 1px solid #f5f5f5;
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    display: none;
+    /* 기본 닫힘 */
+  }
+  .sub_hero ul li.open .cate-button::after {
+    transform: rotate(180deg);
+  }
+  .sub_hero ul li.open dl {
+    display: block;
+    /* 아코디언처럼 펼침 */
+  }
+}
 
 .introduce {
+  width: 100%;
+  max-width: 960px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-top: 2rem;
+  margin: 2rem auto;
 }
 .introduce .introduce_img {
   display: grid;
@@ -1368,45 +1496,6 @@ body:not(.fp-responsive) .fp-overflow {
 
 .repair_procedure {
   padding: 4rem 2rem;
-}
-.repair_procedure .repair_title {
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 3rem;
-  color: #222;
-  text-transform: uppercase;
-}
-.repair_procedure .repair_flow {
-  flex-wrap: wrap;
-  margin-bottom: 4rem;
-}
-.repair_procedure .repair_flow .repair_step {
-  text-align: center;
-}
-.repair_procedure .repair_flow .repair_step .repair_box {
-  display: grid;
-  gap: 0.5rem;
-  border: 1px solid #ddd;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  background: #fff;
-}
-.repair_procedure .repair_flow .repair_step .repair_box img {
-  width: 100%;
-  height: auto;
-  border-radius: 0.25rem;
-  object-fit: cover;
-}
-.repair_procedure .repair_flow .repair_step .step_title {
-  margin-top: 1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #333;
-}
-
-.repair_procedure {
-  padding: 4rem 2rem;
   /* 🔹 Flow 1 : 4단계 */
   /* 🔹 Flow 2,3 : Before → After */
   /* 📱 반응형 */
@@ -1431,6 +1520,9 @@ body:not(.fp-responsive) .fp-overflow {
   background: #2a477b;
   border-radius: 2px;
 }
+.repair_procedure .repair_flow {
+  margin-bottom: 5rem;
+}
 .repair_procedure .repair_flow.steps .repair_wrap {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1442,6 +1534,10 @@ body:not(.fp-responsive) .fp-overflow {
   text-align: center;
 }
 .repair_procedure .repair_flow.steps .repair_step .repair_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 0.5rem;
   background: #fff;
   border: 1px solid #eee;
   border-radius: 0.75rem;
@@ -1453,6 +1549,7 @@ body:not(.fp-responsive) .fp-overflow {
   width: 100%;
   border-radius: 0.5rem;
   object-fit: cover;
+  height: calc(50% - 0.25rem);
 }
 .repair_procedure .repair_flow.steps .repair_step .step_title {
   margin-top: 1rem;
@@ -1465,8 +1562,6 @@ body:not(.fp-responsive) .fp-overflow {
 }
 .repair_procedure .repair_flow.compare .compare_wrap {
   display: flex;
-  align-items: stretch;
-  /* 높이 맞춤 */
   justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
@@ -1475,17 +1570,28 @@ body:not(.fp-responsive) .fp-overflow {
   text-align: center;
 }
 .repair_procedure .repair_flow.compare .repair_step .repair_box {
+  width: 350px;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   background: #fff;
   border: 1px solid #eee;
   border-radius: 0.75rem;
   padding: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
   /* Flow3 Before → Grid */
 }
 .repair_procedure .repair_flow.compare .repair_step .repair_box img {
+  display: block;
   width: 100%;
-  border-radius: 0.5rem;
+  height: 100%;
   object-fit: cover;
+  border-radius: 0.5rem;
+}
+.repair_procedure .repair_flow.compare .repair_step .repair_box img.h50 {
+  height: calc(50% - 0.25rem);
 }
 .repair_procedure .repair_flow.compare .repair_step .repair_box .img_grid {
   display: grid;
@@ -1500,12 +1606,6 @@ body:not(.fp-responsive) .fp-overflow {
   margin-top: 1rem;
   font-size: 1.2rem;
   font-weight: 700;
-}
-.repair_procedure .repair_flow.compare .repair_step .step_title.before {
-  color: #d32f2f;
-}
-.repair_procedure .repair_flow.compare .repair_step .step_title.after {
-  color: #2e7d32;
 }
 .repair_procedure .repair_flow.compare .arrow_box {
   flex: 0 0 auto;
@@ -1544,63 +1644,63 @@ body:not(.fp-responsive) .fp-overflow {
   }
 }
 
-.repair_heater2 {
-  padding: 2rem;
-}
 .repair_heater2 .repair_title {
   text-align: center;
   font-size: 1.8rem;
   font-weight: 700;
-  color: #0078eb;
+  color: #2a477b;
   margin-bottom: 2rem;
 }
 .repair_heater2 .repair_grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
 }
 .repair_heater2 .repair_card {
+  text-align: center;
+}
+.repair_heater2 .repair_card .img_wrap {
   position: relative;
-  height: 220px;
-  border-radius: 10px;
+  width: 100%;
+  aspect-ratio: 4/3;
   overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  cursor: pointer;
+  border-radius: 8px;
 }
-.repair_heater2 .repair_card .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 1rem;
-  transition: background 0.3s ease;
-}
-.repair_heater2 .repair_card .overlay .step_num {
-  position: absolute;
-  top: 10px;
-  left: 12px;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #fff;
-}
-.repair_heater2 .repair_card .overlay .line {
+.repair_heater2 .repair_card .img_wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  width: 24px;
-  height: 2px;
-  background: #fff;
-  margin-bottom: 0.5rem;
 }
-.repair_heater2 .repair_card .overlay p {
-  margin: 0;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: white;
+.repair_heater2 .repair_card .img_wrap .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0.5rem;
 }
-.repair_heater2 .repair_card:hover .overlay {
+.repair_heater2 .repair_card .img_wrap .overlay .step_num {
   background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  font-weight: bold;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.repair_heater2 .repair_card .line {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: #000;
+  margin: 0.75rem auto;
+}
+.repair_heater2 .repair_card p {
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .repair_valve {

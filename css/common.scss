@@ -372,7 +372,91 @@ header {
     border-radius: 2rem;
     font-weight: bold;
   }
+
+  .nav_toggle {
+    display: none;   // ✅ 기본은 숨김
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+  }
+
+  @media (max-width: 768px) {
+    .nav_toggle {
+      display: block;  // ✅ 모바일에서만 표시
+    }
+
+    .header_nav {
+      display: none;   /* 기본 숨김 */
+      flex-direction: column;
+      position: absolute;
+      top: 5rem;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      border-top: 1px solid #eee;
+      z-index: 999;
+    }
+
+    body.nav_open .header_nav {
+      display: flex;   // ✅ 햄버거 클릭 시 표시
+    }
+
+    .nav_item {
+      width: 100%;
+      border-bottom: 1px solid #f5f5f5;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      .nav_link {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+        color: #333 !important;
+        text-shadow: none;
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+
+        &::after {
+          content: "\f078"; /* 폰트어썸 caret-down */
+          font-family: "Font Awesome 6 Free";
+          font-weight: 900;
+          font-size: 0.8rem;
+          transition: transform 0.3s;
+        }
+      }
+
+      /* 아코디언 드롭다운 */
+      .nav_dropdown {
+        display: none; /* 기본 숨김 */
+        flex-direction: column;
+        width: 100%;
+        padding: 0.5rem 1rem;
+        border: none;
+        box-shadow: none;
+        position: static;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+      }
+
+      &.open {
+        .nav_link::after {
+          transform: rotate(180deg); /* 열릴 때 화살표 위로 */
+        }
+        .nav_dropdown {
+          display: flex; /* 아코디언처럼 펼침 */
+        }
+      }
+    }
+  }
+
 }
+
+
 
 
 .content {

@@ -911,13 +911,72 @@ body:not(.fp-responsive) .fp-overflow {
     }
   }
 
+  /* 🔹 반응형 (768px 이하) */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    ul {
+      flex-direction: column;
+      width: 100%;
+      gap: 0;
+
+      li {
+        width: 100%;
+        border-bottom: 1px solid #eee;
+
+        .cate-button {
+          width: 100%;
+          text-align: left;
+          padding: 1rem;
+          font-size: 1rem;
+          position: relative;
+
+          &::after {
+            content: "\f078"; /* Font Awesome caret-down */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            font-size: 0.8rem;
+            position: absolute;
+            right: 1rem;
+            transition: transform 0.3s;
+          }
+        }
+
+        dl {
+          position: static;
+          border: none;
+          border-top: 1px solid #f5f5f5;
+          border-radius: 0;
+          box-shadow: none;
+          width: 100%;
+          padding: 0.5rem 1rem;
+          display: none; /* 기본 닫힘 */
+        }
+
+        &.open {
+          .cate-button::after {
+            transform: rotate(180deg);
+          }
+
+          dl {
+            display: block; /* 아코디언처럼 펼침 */
+          }
+        }
+      }
+    }
+  }
 }
 
 .introduce {
+  width: 100%;
+  max-width: 960px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-top: 2rem;
+  margin: 2rem auto;
 
   .introduce_img {
     display: grid;
@@ -1106,51 +1165,6 @@ body:not(.fp-responsive) .fp-overflow {
     font-size: 2rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 3rem;
-    color: #222;
-    text-transform: uppercase;
-  }
-
-  .repair_flow {
-    flex-wrap: wrap;
-    margin-bottom: 4rem;
-
-    .repair_step {
-      text-align: center;
-
-      .repair_box {
-        display: grid;
-        gap: 0.5rem;
-        border: 1px solid #ddd;
-        border-radius: 0.5rem;
-        padding: 0.5rem;
-        background: #fff;
-
-        img {
-          width: 100%;
-          height: auto;
-          border-radius: 0.25rem;
-          object-fit: cover;
-        }
-      }
-
-      .step_title {
-        margin-top: 1rem;
-        font-size: 1rem;
-        font-weight: 600;
-        color: #333;
-      }
-    }
-  }
-}
-
-.repair_procedure {
-  padding: 4rem 2rem;
-
-  .repair_title {
-    font-size: 2rem;
-    font-weight: 700;
-    text-align: center;
     margin-bottom: 2rem;
     color: $main-color;
     position: relative;
@@ -1169,7 +1183,11 @@ body:not(.fp-responsive) .fp-overflow {
     }
   }
 
-  /* 🔹 Flow 1 : 4단계 */
+  .repair_flow {
+    margin-bottom: 5rem;
+  }
+
+    /* 🔹 Flow 1 : 4단계 */
   .repair_flow.steps {
 
     .repair_wrap {
@@ -1184,6 +1202,10 @@ body:not(.fp-responsive) .fp-overflow {
       text-align: center;
 
       .repair_box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 0.5rem;
         background: #fff;
         border: 1px solid #eee;
         border-radius: 0.75rem;
@@ -1195,6 +1217,7 @@ body:not(.fp-responsive) .fp-overflow {
           width: 100%;
           border-radius: 0.5rem;
           object-fit: cover;
+          height: calc(50% - 0.25rem);
         }
       }
 
@@ -1213,7 +1236,6 @@ body:not(.fp-responsive) .fp-overflow {
 
     .compare_wrap {
       display: flex;
-      align-items: stretch; /* 높이 맞춤 */
       justify-content: center;
       gap: 2rem;
       flex-wrap: wrap;
@@ -1223,16 +1245,28 @@ body:not(.fp-responsive) .fp-overflow {
       text-align: center;
 
       .repair_box {
+        width: 350px;
+        height: 380px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
         background: #fff;
         border: 1px solid #eee;
         border-radius: 0.75rem;
         padding: 1rem;
         box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        box-sizing: border-box;
 
         img {
+          display: block;
           width: 100%;
-          border-radius: 0.5rem;
+          height: 100%;
           object-fit: cover;
+          border-radius: 0.5rem;
+
+          &.h50 {
+            height: calc(50% - 0.25rem);
+          }
         }
 
         /* Flow3 Before → Grid */
@@ -1252,9 +1286,6 @@ body:not(.fp-responsive) .fp-overflow {
         margin-top: 1rem;
         font-size: 1.2rem;
         font-weight: 700;
-
-        &.before { color: #d32f2f; }
-        &.after { color: #2e7d32; }
       }
     }
 
@@ -1296,72 +1327,76 @@ body:not(.fp-responsive) .fp-overflow {
   }
 }
 
-
 .repair_heater2 {
-  padding: 2rem;
 
   .repair_title {
     text-align: center;
     font-size: 1.8rem;
     font-weight: 700;
-    color: #0078eb;
+    color: $main-color;
     margin-bottom: 2rem;
   }
 
   .repair_grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
   }
 
   .repair_card {
-    position: relative;
-    height: 220px;
-    border-radius: 10px;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
+    text-align: center;
 
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 1rem;
-      transition: background 0.3s ease;
+    .img_wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3; // ✅ 원하는 비율 (예: 4:3, 16:9 등)
+      overflow: hidden;
+      border-radius: 8px;
 
-      .step_num {
-        position: absolute;
-        top: 10px;
-        left: 12px;
-        font-size: 2rem;
-        font-weight: 700;
-        color: #fff;
-      }
-
-      .line {
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; // ✅ 비율 안맞아도 꽉 채우기
         display: block;
-        width: 24px;   // ✅ 짧게
-        height: 2px;
-        background: #fff;
-        margin-bottom: 0.5rem;
       }
 
-      p {
-        margin: 0;
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: white;
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 0.5rem;
+
+        .step_num {
+          background: rgba(0, 0, 0, 0.6);
+          color: #fff;
+          padding: 0.25rem 0.5rem;
+          font-weight: bold;
+          border-radius: 4px;
+          font-size: 1rem;
+        }
       }
     }
 
-    &:hover .overlay {
-      background: rgba(0, 0, 0, 0.6);
+    .line {
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: #000;
+      margin: 0.75rem auto;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 600;
     }
   }
+
+
 }
 
 .repair_valve {
