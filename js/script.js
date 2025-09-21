@@ -58,6 +58,10 @@ const autoplayDelay = 4000;
 
 const swiper = new Swiper(".mainSwiper", {
     loop: true,
+    effect: "fade",           // ✅ 페이드 효과 적용
+    fadeEffect: {
+        crossFade: true         // ✅ 부드럽게 교차
+    },
     autoplay: {
         delay: autoplayDelay,
         disableOnInteraction: false
@@ -67,7 +71,6 @@ const swiper = new Swiper(".mainSwiper", {
         prevEl: ".custom-pagination .swiper-button-prev"
     },
 });
-
 
 // ✅ init 이벤트
 swiper.on("init", () => {

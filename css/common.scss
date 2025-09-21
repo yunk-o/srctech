@@ -142,7 +142,8 @@ header {
   }
 
   .header_nav {
-    width: 45%;
+    width: 60%;
+    max-width: 500px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -383,8 +384,22 @@ header {
   }
 
   @media (max-width: 768px) {
+    .header_container {
+      padding: 0 1rem;
+    }
+
     .nav_toggle {
       display: block;  // ✅ 모바일에서만 표시
+      width: 56px;
+      height: 56px;
+      margin-left: auto;
+      i {
+        color: white;
+      }
+    }
+
+    .nav_search {
+      width: 56px;
     }
 
     .header_nav {
@@ -467,6 +482,9 @@ header {
   }
   .container {
     padding: 0 80px;
+    @media (max-width: 1024px) {
+      padding: 0 40px;
+    }
   }
   .sub_title {
     position: relative;

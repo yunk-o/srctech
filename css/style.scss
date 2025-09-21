@@ -805,7 +805,6 @@ body:not(.fp-responsive) .fp-overflow {
 
     .container {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
     }
 
@@ -830,6 +829,7 @@ body:not(.fp-responsive) .fp-overflow {
       align-items: center;
 
       li {
+        flex: 1;
         position: relative;
         width: 360px;
         border-right: 1px solid rgba(255, 255, 255, 0.2);
@@ -911,60 +911,26 @@ body:not(.fp-responsive) .fp-overflow {
     }
   }
 
-  /* 🔹 반응형 (768px 이하) */
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-      align-items: flex-start;
+  @media (max-width: 1024px) {
+    .category .home {
+      min-width: 40px;
+      width: 40px;
+      height: 40px;
+      i {
+        font-size: 1rem;
+      }
     }
-
-    ul {
-      flex-direction: column;
-      width: 100%;
-      gap: 0;
-
-      li {
-        width: 100%;
-        border-bottom: 1px solid #eee;
-
-        .cate-button {
-          width: 100%;
-          text-align: left;
-          padding: 1rem;
-          font-size: 1rem;
-          position: relative;
-
-          &::after {
-            content: "\f078"; /* Font Awesome caret-down */
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            font-size: 0.8rem;
-            position: absolute;
-            right: 1rem;
-            transition: transform 0.3s;
-          }
-        }
-
-        dl {
-          position: static;
-          border: none;
-          border-top: 1px solid #f5f5f5;
-          border-radius: 0;
-          box-shadow: none;
-          width: 100%;
-          padding: 0.5rem 1rem;
-          display: none; /* 기본 닫힘 */
-        }
-
-        &.open {
-          .cate-button::after {
-            transform: rotate(180deg);
-          }
-
-          dl {
-            display: block; /* 아코디언처럼 펼침 */
-          }
-        }
+    .category ul {
+      flex: 1;
+      li button {
+        height: 40px;
+        padding: 0 15px;
+        font-size: 14px;
+      }
+      li dl dd a {
+        height: 35px;
+        padding: 0 15px;
+        font-size: 14px;
       }
     }
   }
@@ -1473,8 +1439,18 @@ body:not(.fp-responsive) .fp-overflow {
   width: 100%;
   margin: 3rem 0;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+
   > div {
     width: 50%;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
   }
 
   .input_group {
@@ -1484,6 +1460,10 @@ body:not(.fp-responsive) .fp-overflow {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
+
+    @media (max-width: 1024px) {
+      max-width: 100%;
+    }
 
     li {
       display: flex;
