@@ -454,7 +454,7 @@ body:not(.fp-responsive) .fp-overflow {
       }
 
       h2 {
-        font-size: 5rem;
+        font-size: 3rem;
         text-align: center;
         color: $main-color;
       }
@@ -765,13 +765,27 @@ body:not(.fp-responsive) .fp-overflow {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 120px;
   background: {
     image: url("../images/company.jpg");
     repeat: no-repeat;
     position: center;
     size: cover
   };
+
+  @media (max-width: 768px) {
+    height: 300px;
+  }
+
+
+  h1 {
+    position: absolute;
+    top: 45%;
+    color: white;
+    font-size: 3rem;
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+  }
 
   &::before {
     content: '';
@@ -800,13 +814,6 @@ body:not(.fp-responsive) .fp-overflow {
     background-image: url("../images/contact3.jpg");
   }
 
-
-  h1 {
-    position: absolute;
-    top: 45%;
-    color: white;
-    font-size: 3rem;
-  }
 
   .category {
     position: absolute;
@@ -917,6 +924,9 @@ body:not(.fp-responsive) .fp-overflow {
             opacity: 1;
             top: 68px;
             z-index: 1;
+            @media (max-width: 1024px) {
+              top: 42px;
+            }
           }
         }
       }
@@ -1061,6 +1071,14 @@ body:not(.fp-responsive) .fp-overflow {
       100% { transform: translateX(0); }
     }
   }
+  @media (max-width: 768px) {
+    .information_items {
+      gap: 1.5rem;
+      a {
+        padding: 1.5rem 2rem;
+      }
+    }
+  }
 }
 
 .map_area {
@@ -1122,7 +1140,7 @@ body:not(.fp-responsive) .fp-overflow {
   .certification_items {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 3rem;
+    gap: 2rem;
     align-items: stretch;
 
     a {
@@ -1134,7 +1152,14 @@ body:not(.fp-responsive) .fp-overflow {
       }
     }
   }
+  @media (max-width: 768px) {
+    .certification_items {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  }
 }
+
 
 .repair_procedure {
   padding: 4rem 2rem;

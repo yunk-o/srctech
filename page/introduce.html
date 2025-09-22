@@ -18,8 +18,18 @@
           <img src="../images/src_logo_transparent.png" alt="">
         </a>
       </div>
-      <ul class="header_nav">
-        <li class="nav_item ">
+
+      <!-- 모바일 메뉴 버튼 -->
+      <button class="nav_toggle">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <div class="header_nav">
+        <!-- 닫기 버튼 (모바일 메뉴 열렸을 때 표시) -->
+        <button class="nav_close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="nav_item ">
           <a class="nav_link " href="introduce.html">Company</a>
           <div class="nav_dropdown">
             <div class="dropdown_group">
@@ -30,8 +40,8 @@
               <a href="global.html">Global Customer</a>
             </div>
           </div>
-        </li>
-        <li class="nav_item ">
+        </div>
+        <div class="nav_item ">
           <a class="nav_link" href="parts.html">Parts</a>
           <div class="nav_dropdown ">
             <div class="dropdown_group">
@@ -79,8 +89,8 @@
               <a class="group_main" href="parts.html">PCB</a>
             </div>
           </div>
-        </li>
-        <li class="nav_item">
+        </div>
+        <div class="nav_item">
           <a class="nav_link" href="repair_heater.html">Repair</a>
           <div class="nav_dropdown ">
             <div class="dropdown_group">
@@ -89,11 +99,11 @@
               <a href="repair_valve.html">Valve</a>
             </div>
           </div>
-        </li>
-        <li class="nav_item">
+        </div>
+        <div class="nav_item">
           <a class="nav_link" href="contact.html">Contact Us</a>
-        </li>
-      </ul>
+        </div>
+      </div>
 
       <div class="nav_search">
         <button class="nav_link btn_search" onclick="openSearchBox();">
@@ -108,7 +118,7 @@
         <div class="search_content">
           <h2>Search site content</h2>
           <form onsubmit="return searchAction(event);">
-            <input type="text" placeholder="Enter your search term here"/>
+            <input type="text" placeholder="Enter your search term here" />
             <button type="submit" class="btn_submit">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>

@@ -236,6 +236,7 @@ header .nav_search .btn_search {
 header .nav_search .btn_search i {
   font-size: 1.25rem;
   color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 header .search_overlay {
   position: fixed;
@@ -320,37 +321,46 @@ header .btn_contact {
   border-radius: 2rem;
   font-weight: bold;
 }
-header .nav_toggle {
+header .nav_toggle,
+header .nav_close {
   display: none;
   background: none;
   border: none;
+  width: 56px;
+  height: 56px;
   font-size: 1.5rem;
   cursor: pointer;
   color: #333;
 }
 @media (max-width: 768px) {
   header .header_container {
-    padding: 0 1rem;
+    padding: 0 0.5rem;
+    display: flex;
+    align-items: center;
   }
   header .nav_toggle {
     display: block;
-    width: 56px;
-    height: 56px;
     margin-left: auto;
   }
   header .nav_toggle i {
-    color: #333;
     font-size: 1.5rem;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
   header .nav_search {
     width: 56px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
-  header .nav_search i {
-    color: #333;
-    font-size: 1.25rem;
+  header .nav_search .btn_search {
+    margin-left: 0;
+  }
+  header .nav_close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  header .nav_close i {
+    font-size: 1.75rem;
   }
   header .header_nav {
     display: none;
@@ -359,38 +369,41 @@ header .nav_toggle {
     top: 0;
     left: 0;
     width: 100%;
-    height: 50vh;
+    max-width: 100%;
+    height: 100vh;
     background: #fff;
     border-top: 1px solid #eee;
     z-index: 999;
     overflow-y: auto;
+    padding-top: 4rem;
   }
   header .header_nav.header_nav_open {
     display: flex;
+    justify-content: flex-start;
     animation: slideDown 0.3s ease;
   }
+  header .header_nav.header_nav_open ~ .nav_close {
+    display: block;
+  }
   header .header_nav .nav_item {
+    align-items: flex-start;
     width: 100%;
+    height: auto;
     border-bottom: 1px solid #f5f5f5;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    /* 아코디언 드롭다운 */
   }
   header .header_nav .nav_item .nav_link {
     width: 100%;
-    height: 30px;
+    height: 60px;
     padding: 1rem 1.25rem;
     font-size: 1rem;
     color: #333 !important;
-    text-shadow: none;
-    justify-content: space-between;
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
   header .header_nav .nav_item .nav_link::after {
     content: "\f078";
-    /* 폰트어썸 caret-down */
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     font-size: 0.8rem;
@@ -400,25 +413,45 @@ header .nav_toggle {
     display: none;
     flex-direction: column;
     width: 100%;
-    padding: 0.25rem 1.5rem 0.5rem;
-    border: none;
-    box-shadow: none;
-    position: static;
     background: #fafafa;
+    opacity: 1 !important;
+    visibility: visible !important;
+    padding: 0;
+  }
+  header .header_nav .nav_item .nav_dropdown a {
+    padding: 1rem 1.5rem;
   }
   header .header_nav .nav_item .nav_dropdown .dropdown_group {
+    width: 100%;
     flex-direction: column;
+    gap: 0;
+    padding: 0;
+  }
+  header .header_nav .nav_item .nav_dropdown .dropdown_group .sub_group {
+    width: 100%;
   }
   header .header_nav .nav_item.open .nav_link::after {
     transform: rotate(180deg);
   }
   header .header_nav .nav_item.open .nav_dropdown {
+    position: initial;
     display: flex;
+    transform: initial;
   }
   header .header_nav .nav_item .sub_group a {
-    padding: 0.5rem 0;
+    min-width: 60px;
+    padding: 1rem 1.5rem;
     font-size: 0.9rem;
     color: #555;
+  }
+  header .search_overlay .btn_close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    top: 1rem;
+    right: 0.5rem;
   }
   @keyframes slideDown {
     from {
@@ -434,6 +467,11 @@ header .nav_toggle {
 
 .content {
   padding: 80px 0;
+}
+@media (max-width: 768px) {
+  .content {
+    padding: 40px 0;
+  }
 }
 .content.bg_gray {
   background-color: #f8f8fa;
@@ -455,6 +493,11 @@ header .nav_toggle {
   margin-bottom: 4rem;
   font-size: 2.5rem;
   border-bottom: 1px solid #333;
+}
+@media (max-width: 768px) {
+  .content .sub_title {
+    font-size: 2rem;
+  }
 }
 .content .sub_title::before {
   content: "";
@@ -911,7 +954,7 @@ body:not(.fp-responsive) .fp-overflow {
   padding: 0 2rem 2rem;
 }
 .product_view .description_area h2 {
-  font-size: 5rem;
+  font-size: 3rem;
   text-align: center;
   color: #2a477b;
 }
@@ -1166,11 +1209,26 @@ body:not(.fp-responsive) .fp-overflow {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 120px;
   background-image: url("../images/company.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+@media (max-width: 768px) {
+  .sub_hero {
+    height: 300px;
+  }
+}
+.sub_hero h1 {
+  position: absolute;
+  top: 45%;
+  color: white;
+  font-size: 3rem;
+}
+@media (max-width: 768px) {
+  .sub_hero h1 {
+    font-size: 2.5rem;
+  }
 }
 .sub_hero::before {
   content: "";
@@ -1196,12 +1254,6 @@ body:not(.fp-responsive) .fp-overflow {
 }
 .sub_hero.contact {
   background-image: url("../images/contact3.jpg");
-}
-.sub_hero h1 {
-  position: absolute;
-  top: 45%;
-  color: white;
-  font-size: 3rem;
 }
 .sub_hero .category {
   position: absolute;
@@ -1301,6 +1353,11 @@ body:not(.fp-responsive) .fp-overflow {
   opacity: 1;
   top: 68px;
   z-index: 1;
+}
+@media (max-width: 1024px) {
+  .sub_hero .category ul li.active dl {
+    top: 42px;
+  }
 }
 @media (max-width: 1024px) {
   .sub_hero .category .home {
@@ -1432,6 +1489,14 @@ body:not(.fp-responsive) .fp-overflow {
     transform: translateX(0);
   }
 }
+@media (max-width: 768px) {
+  .information .information_items {
+    gap: 1.5rem;
+  }
+  .information .information_items a {
+    padding: 1.5rem 2rem;
+  }
+}
 
 .map_area {
   position: relative;
@@ -1511,7 +1576,7 @@ body:not(.fp-responsive) .fp-overflow {
 .certification .certification_items {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 3rem;
+  gap: 2rem;
   align-items: stretch;
 }
 .certification .certification_items a {
@@ -1521,6 +1586,12 @@ body:not(.fp-responsive) .fp-overflow {
 }
 .certification .certification_items a img {
   height: 100%;
+}
+@media (max-width: 768px) {
+  .certification .certification_items {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
 }
 
 .repair_procedure {
