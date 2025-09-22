@@ -584,7 +584,9 @@ body:not(.fp-responsive) .fp-overflow {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: zoomEffect 5s ease-in-out forwards infinite;
+}
+.main_hero .mainSwiper .swiper-slide img.zoom {
+  animation: zoomEffect 4s ease-in-out forwards;
 }
 @keyframes zoomEffect {
   0% {
@@ -934,6 +936,11 @@ body:not(.fp-responsive) .fp-overflow {
   width: 40%;
   padding: 0.5rem;
 }
+@media (max-width: 768px) {
+  .product_view .img_area {
+    width: 80%;
+  }
+}
 .product_view .img_area img {
   object-fit: fill;
   aspect-ratio: 1/1;
@@ -951,7 +958,6 @@ body:not(.fp-responsive) .fp-overflow {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  padding: 0 2rem 2rem;
 }
 .product_view .description_area h2 {
   font-size: 3rem;
@@ -981,7 +987,7 @@ body:not(.fp-responsive) .fp-overflow {
   height: 1rem;
 }
 .product_view .description_area .btns {
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 .product_view .description_area .btns .del {
   background-color: #777777;
@@ -1227,6 +1233,7 @@ body:not(.fp-responsive) .fp-overflow {
 }
 @media (max-width: 768px) {
   .sub_hero h1 {
+    top: 40%;
     font-size: 2.5rem;
   }
 }
@@ -1537,19 +1544,19 @@ body:not(.fp-responsive) .fp-overflow {
   white-space: nowrap;
 }
 .map_area .pin.korea {
-  top: 50%;
-  left: 80%;
+  top: 55%;
+  left: 80.5%;
 }
 .map_area .pin.usa {
   top: 46%;
-  left: 16%;
+  left: 14%;
 }
 .map_area .pin.germany {
-  top: 42%;
-  left: 49%;
+  top: 45%;
+  left: 48%;
 }
 .map_area .pin.france {
-  top: 45%;
+  top: 49%;
   left: 45%;
 }
 .map_area .pin.italy {
@@ -1557,16 +1564,16 @@ body:not(.fp-responsive) .fp-overflow {
   left: 50%;
 }
 .map_area .pin.china {
-  top: 46%;
+  top: 50%;
   left: 74%;
 }
 .map_area .pin.japan {
-  top: 51%;
+  top: 52%;
   left: 84%;
 }
 .map_area .pin.taiwan {
-  top: 58%;
-  left: 79%;
+  top: 59%;
+  left: 78%;
 }
 .map_area .pin.malaysia {
   top: 70%;
@@ -1728,19 +1735,35 @@ body:not(.fp-responsive) .fp-overflow {
   }
 }
 @media (max-width: 1024px) {
-  .repair_procedure .repair_flow.steps {
+  .repair_procedure .repair_wrap {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (max-width: 768px) {
-  .repair_procedure .repair_flow.steps {
-    grid-template-columns: 1fr;
+  .repair_procedure .repair_flow.steps .repair_wrap {
+    grid-template-columns: repeat(2, 1fr);
   }
   .repair_procedure .repair_flow.compare .compare_wrap {
     flex-direction: column;
   }
   .repair_procedure .arrow_box {
     justify-content: center;
+    transform: rotate(90deg);
+  }
+  .repair_procedure .arrow_icon {
+    font-size: 3rem;
+    color: #2a477b;
+    animation: arrowMoveDown 1.5s infinite;
+  }
+  @keyframes arrowMoveDown {
+    0%, 100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(10px);
+      opacity: 0.6;
+    }
   }
 }
 
