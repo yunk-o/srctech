@@ -149,3 +149,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const navToggle = document.querySelector(".nav_toggle");
+    const headerNav = document.querySelector(".header_nav");
+
+    navToggle.addEventListener("click", () => {
+        headerNav.classList.toggle("header_nav_open");
+    });
+});

@@ -59,6 +59,16 @@ body:not(.fp-responsive) .fp-overflow {
     background: rgba(black, 0.7);
     padding: 2rem;
 
+    @media (max-width: 768px) {
+      width: 90%;
+      max-width: 400px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+
     > * {
       text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
     }
@@ -407,10 +417,12 @@ body:not(.fp-responsive) .fp-overflow {
     background-color: white;
 
     .container {
-      width: 1000px;
       display: flex;
       align-items: center;
       gap: 2rem;
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
     }
 
     .img_area {

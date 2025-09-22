@@ -339,27 +339,37 @@ header .nav_toggle {
     margin-left: auto;
   }
   header .nav_toggle i {
-    color: white;
+    color: #333;
+    font-size: 1.5rem;
   }
   header .nav_search {
     width: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  header .nav_search i {
+    color: #333;
+    font-size: 1.25rem;
   }
   header .header_nav {
     display: none;
-    /* 기본 숨김 */
     flex-direction: column;
     position: absolute;
-    top: 5rem;
+    top: 0;
     left: 0;
     width: 100%;
+    height: 50vh;
     background: #fff;
     border-top: 1px solid #eee;
     z-index: 999;
+    overflow-y: auto;
   }
-  header body.nav_open .header_nav {
+  header .header_nav.header_nav_open {
     display: flex;
+    animation: slideDown 0.3s ease;
   }
-  header .nav_item {
+  header .header_nav .nav_item {
     width: 100%;
     border-bottom: 1px solid #f5f5f5;
     flex-direction: column;
@@ -367,9 +377,10 @@ header .nav_toggle {
     justify-content: flex-start;
     /* 아코디언 드롭다운 */
   }
-  header .nav_item .nav_link {
+  header .header_nav .nav_item .nav_link {
     width: 100%;
-    padding: 1rem;
+    height: 30px;
+    padding: 1rem 1.25rem;
     font-size: 1rem;
     color: #333 !important;
     text-shadow: none;
@@ -377,7 +388,7 @@ header .nav_toggle {
     display: flex;
     align-items: center;
   }
-  header .nav_item .nav_link::after {
+  header .header_nav .nav_item .nav_link::after {
     content: "\f078";
     /* 폰트어썸 caret-down */
     font-family: "Font Awesome 6 Free";
@@ -385,26 +396,39 @@ header .nav_toggle {
     font-size: 0.8rem;
     transition: transform 0.3s;
   }
-  header .nav_item .nav_dropdown {
+  header .header_nav .nav_item .nav_dropdown {
     display: none;
-    /* 기본 숨김 */
     flex-direction: column;
     width: 100%;
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 1.5rem 0.5rem;
     border: none;
     box-shadow: none;
     position: static;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
+    background: #fafafa;
   }
-  header .nav_item.open .nav_link::after {
+  header .header_nav .nav_item .nav_dropdown .dropdown_group {
+    flex-direction: column;
+  }
+  header .header_nav .nav_item.open .nav_link::after {
     transform: rotate(180deg);
-    /* 열릴 때 화살표 위로 */
   }
-  header .nav_item.open .nav_dropdown {
+  header .header_nav .nav_item.open .nav_dropdown {
     display: flex;
-    /* 아코디언처럼 펼침 */
+  }
+  header .header_nav .nav_item .sub_group a {
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
